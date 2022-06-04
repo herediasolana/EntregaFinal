@@ -4,7 +4,7 @@ from AppNQV import views
 
 
 urlpatterns = [
-    path('home', views.inicio),
+    path('home', views.home),
     path('peliculas', views.peliculas),
     path('actores', views.actores),
     path('plataformas', views.plataformas),

@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 
 def inicio(request):
-    return render (request,'home.html')
+    return render (request,'inicio.html')
 
 def peliculas(request):
     return render (request,'peliculas.html')
@@ -14,3 +14,6 @@ def actores(request):
 
 def plataformas(request):
     return render (request,'plataformas.html')
+
+def home(request):
+    return render (request,'home.html')
