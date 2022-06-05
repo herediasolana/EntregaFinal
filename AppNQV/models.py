@@ -15,22 +15,23 @@ CATEGORIAS=(
 )
 
 class Peliculas(models.Model):
-    nombre: models.CharField(max_length=40)
-    duracion: models.TimeField()
-    clasificacion: models.CharField(max_length=20, choices=CATEGORIAS, default='drama')
-    fechaDeEstreno: models.DateField(blank=True, null=True)
-    oscar: models.BooleanField(default=False)
-    ratingIMDB: models.IntegerField()
-    linkTrailer: models.URLField()
+    nombre= models.CharField(max_length=40,blank=True, null=True)
+    duracion= models.TimeField(blank=True, null=True)
+    clasificacion= models.CharField(max_length=20, choices=CATEGORIAS, default='drama')
+    fechaDeEstreno= models.DateField(blank=True, null=True)
+    oscar= models.BooleanField(default=False)
+    ratingIMDB= models.FloatField(blank=True, null=True)
+    linkTrailer= models.URLField(blank=True, null=True)
 
 class Actores(models.Model):
-    nombre:models.CharField(max_length=40)
-    apellido:models.CharField(max_length=40)
-    edad:models.IntegerField()
-    origen:models.CharField(max_length=40)
-    fechaDeNacimiento:models.DateField(blank=True, null=True)
+    nombre= models.CharField(max_length=40,blank=True, null=True)
+    apellido= models.CharField(max_length=40, blank=True, null=True)
+    edad= models.IntegerField(blank=True, null=True)
+    origen= models.CharField(max_length=40, blank=True, null=True)
+    fechaDeNacimiento= models.DateField(blank=True, null=True)
 
 class Plataformas(models.Model):
-    cantidadUsuarios:models.IntegerField()
-    cantidadPeliculasDisponibles:models.IntegerField()
-    precioSuscripcion:models.DecimalField(max_digits=6, decimal_places=2)
+    nombre= models.CharField(max_length=40,blank=True, null=True)
+    cantidadUsuarios=models.IntegerField(blank=True, null=True)
+    cantidadPeliculasDisponibles=models.IntegerField(blank=True, null=True)
+    precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)

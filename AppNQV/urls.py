@@ -9,4 +9,6 @@ urlpatterns = [
     path('actores', views.actores),
     path('plataformas', views.plataformas),
     path('datosCuriosos', views.datosCuriosos),
+    path('peliculasFormulario', views.peliculasFormulario),
+    path('actoresFormulario', views.actoresFormulario),
 ]

@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <div>
+            <div>
+                <h1>Formulario - Agregar un Actor</h1>
+                <h4></h4>
+            </div>
+            <form action="/actoresFormulario/" method="POST">
+                <p>Nombre:  <input type='text' name="nombre"></p>
+                <p>Apellido:  <input type='text' name="apellido"></p>
+                <p>Edad:  <input type='text' name="edad"></p>
+                <p>Origen:  <input type='' name="origen"></p>
+                <p>Fecha de Nacimiento:  <input type='date' name="fechaDeNacimiento"></p>
+                
+                
+                <input type="submit" value="Enviar">
+            
+            </form>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}
