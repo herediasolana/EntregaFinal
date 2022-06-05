@@ -17,3 +17,6 @@ def plataformas(request):
 
 def home(request):
     return render (request,'home.html')
+
+def datosCuriosos(request):
+    return render (request,'datosCuriosos.html')
