@@ -10,11 +10,10 @@
             </div>
             {% for plataforma in plataformas %}
             <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"> {{plataforma.nombre}}</li>
+                <li class="list-group-item list-group-item-dark">Plataforma: {{plataforma.nombre}}</li>
                 <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidadUsuarios}}</li>
                 <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataforma.cantidadPeliculasDisponibles}} </li>
-                <li class="list-group-item list-group-item-secondary">Precio Suscripcion: {{plataforma.precioSuscripcion}} </li>
-                
+                <li class="list-group-item list-group-item-secondary">Precio Suscripción: {{plataforma.precioSuscripcion}} </li>
                 <p></p>
             </ul>
             {% endfor %}

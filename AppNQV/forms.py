@@ -6,7 +6,7 @@ CATEGORIAS=(
     ('suspenso','SUSPENSO'),
     ('terror','TERROR'),
     ('documental','DOCUMENTAL'),
-    ('romatica','ROMANTICA'),
+    ('romantica','ROMANTICA'),
 )
 
 class PeliculasFormulario(forms.Form):

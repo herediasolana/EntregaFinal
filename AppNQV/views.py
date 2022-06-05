@@ -26,7 +26,7 @@ def actores(request):
     return render (request,'actores.html', context=context)
 
 def plataformas(request):
-    plataforma=Plataformas.objects.all()
+    plataformas=Plataformas.objects.all()
     context = {'plataformas':plataformas}
     return render (request,'plataformas.html', context=context)
 
@@ -41,10 +41,9 @@ def plataformasFormulario(request):
             informacion =miFormularioPlataformas.cleaned_data
 
             plataformas = Plataformas ( nombre=informacion['nombre'], 
-            duracion=informacion['duracion'], 
-            clasificacion=informacion['clasificacion'],
-            fechaDeEstreno=informacion['fechaDeEstreno'],
-            oscar=informacion['oscar'],
+            cantidadUsuarios=informacion['cantidadUsuarios'], 
+            cantidadPeliculasDisponibles=informacion['cantidadPeliculasDisponibles'],
+            precioSuscripcion=informacion['precioSuscripcion'],
             )
             plataformas.save()
             return render (request,"plataformas.html")
@@ -84,10 +83,11 @@ def actoresFormulario(request):
             actores = Actores ( nombre=informacion['nombre'], 
             apellido=informacion['apellido'], 
             edad=informacion['edad'],
+            origen=informacion['origen'],
             fechaDeNacimiento=informacion['fechaDeNacimiento'],
             )
-            plataformas.save()
+            actores.save()
             return render (request,"actores.html")
     else:
-        miFormularioActores= PlataformasFormulario()
+        miFormularioActores= ActoresFormulario()
     return render(request, 'actoresFormulario.html',{'miFormularioActores':miFormularioActores})
