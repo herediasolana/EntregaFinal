@@ -1,8 +1,18 @@
+from unicodedata import name
 from django.shortcuts import render
 from AppNQV.forms import ActoresFormulario, PeliculasFormulario, PlataformasFormulario
 from AppNQV.models import Actores, Peliculas, Plataformas
 
 # Create your views here.
+
+#######################BUSQUEDA#####################################
+def buscar_view(request):
+    print(request.GET)
+    #peliculas = Peliculas.objects.get() #------>lo usamos cuando queremos traer un objeto en particular
+    peliculas = Peliculas.objects.filter(nombre__icontains = request.GET['search']) #--->filtra, trae lo que cumple on la condicion
+    context = {'peliculas':peliculas}
+    return render(request, 'busqueda.html', context = context)
+
 #######################-PAGINAS#####################################
 
 def inicio(request):
@@ -29,6 +39,7 @@ def plataformas(request):
     plataformas=Plataformas.objects.all()
     context = {'plataformas':plataformas}
     return render (request,'plataformas.html', context=context)
+
 
 
 #######################-FORMULARIOS#####################################
@@ -91,3 +102,4 @@ def actoresFormulario(request):
     else:
         miFormularioActores= ActoresFormulario()
     return render(request, 'actoresFormulario.html',{'miFormularioActores':miFormularioActores})
+

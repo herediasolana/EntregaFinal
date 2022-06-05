@@ -1,0 +1,36 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <div>
+            <div>
+                <h1>BUSQUEDA DE PELICULAS</h1>
+                <h4></h4>
+                <p></p>
+                
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                {% for pelicula in peliculas %}
+                <div class="card text-center">
+                    <div class="card-header">
+                        {{pelicula.nombre}}
+                    </div>
+                    <div class="card-body">
+                        <img src="..." class="card-img-top" alt="...">
+                        <h5 class="card-title">{{pelicula.pelicula.clasificacion}}</h5>
+                        <p class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</p>
+                        <p class="card-text">Puntuación: {{pelicula.ratingIMDB}}</p>
+                        <p class="card-text">Duración: {{pelicula.duracion}}</p>
+                        <a href="{{pelicula.linkTrailer}}" class="btn btn-primary">Ver trailer</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                
+                
+                {% endfor %}
+{% endblock %}

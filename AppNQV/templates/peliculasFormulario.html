@@ -8,25 +8,18 @@
                 <h1>Formulario - Agregar una Pelicula</h1>
                 <h4></h4>
             </div>
+            
+            <form action="" method="POST">{% csrf_token %}
+                <table>
+                    {{ miFormularioPeliculas.as_table }}
+                </table>
+                <input type="submit", value="Enviar">
+            </form>
             {% if miFormularioPeliculas.errors %}
             <p style="color: red;"> Estan mal los datos, revisar</p>
             {% endif %}
-
-
-            <form action="" method="POST">{% csrf_token %}
-                <table>
-
-
-                    {{ miFormularioPeliculas.as_table }}
-
-
-                </table>
-
-                <input type="submit", value="Enviar">
-            
-            </form>
-            
         </div>
     </div>
 </section>
+
 {% endblock %}
