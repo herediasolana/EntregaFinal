@@ -5,10 +5,11 @@ from AppNQV import views
 
 urlpatterns = [
     path('home', views.home),
-    path('peliculas', views.peliculas),
-    path('actores', views.actores),
-    path('plataformas', views.plataformas),
-    path('datosCuriosos', views.datosCuriosos),
-    path('peliculasFormulario', views.peliculasFormulario),
-    path('actoresFormulario', views.actoresFormulario),
+    path('peliculas', views.peliculas),#listado peliculas
+    path('actores', views.actores),#listado actores
+    path('plataformas', views.plataformas),#listado plataformas
+    path('datosCuriosos', views.datosCuriosos),#datos curiosos
+    path('peliculasFormulario', views.peliculasFormulario),#formulario peliculas
+    path('actoresFormulario', views.actoresFormulario),#formulario actores
+    path('plataformasFormulario', views.plataformasFormulario),#formulario plataformas
 ]

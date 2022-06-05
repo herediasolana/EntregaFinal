@@ -7,11 +7,23 @@
             <div>
                 <h1>Peliculas</h1>
                 <h4></h4>
+                <p></p>
             </div>
-            <img class="img-fluid w-50" src="img/background.jpg" alt="" />
+            {% for pelicula in peliculas %}
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark">Nombre: {{pelicula.nombre}}</li>
+                <li class="list-group-item list-group-item-secondary">Duración: {{pelicula.duracion}}</li>
+                <li class="list-group-item list-group-item-secondary">Clasificación: {{pelicula.clasificacion}}</li>
+                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{pelicula.fechaDeEstreno}} </li>
+                <li class="list-group-item list-group-item-secondary">Ganó Oscar?: {{pelicula.oscar}} </li>
+                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
+                <li class="list-group-item list-group-item-secondary">Trailer: {{pelicula.linkTrailer}} </li>
+                <p></p>
+            </ul>
+            {% endfor %}
         </div>
         <a href="/AppNQV/peliculasFormulario" button type="button" class="btn btn-light"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+            style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
             Agregar Peliculas
         </a>
         

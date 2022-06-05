@@ -8,8 +8,21 @@
                 <h1>Plataformas</h1>
                 <h4></h4>
             </div>
-            <img class="img-fluid w-50" src="img/background.jpg" alt="" />
+            {% for plataforma in plataformas %}
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark"> {{plataforma.nombre}}</li>
+                <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidadUsuarios}}</li>
+                <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataforma.cantidadPeliculasDisponibles}} </li>
+                <li class="list-group-item list-group-item-secondary">Precio Suscripcion: {{plataforma.precioSuscripcion}} </li>
+                
+                <p></p>
+            </ul>
+            {% endfor %}
         </div>
+        <a href="/AppNQV/plataformasFormulario" button type="button" class="btn btn-light"
+            style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
+            Agregar Plataformas
+        </a>
     </div>
 </section>
 {% endblock %}
