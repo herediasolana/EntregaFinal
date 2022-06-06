@@ -17,12 +17,13 @@ CATEGORIAS=(
 #---------------CLASE-PELICULAS-------------------#
 class Peliculas(models.Model):
     nombre= models.CharField(max_length=40,blank=True, null=True)
-    duracion= models.TimeField(blank=True, null=True)
+    duracion= models.IntegerField(blank=True, null=True)
     clasificacion= models.CharField(max_length=20, choices=CATEGORIAS, default='drama')
     fechaDeEstreno= models.DateField(blank=True, null=True)
     oscar= models.BooleanField(default=False)
     ratingIMDB= models.FloatField(blank=True, null=True)
     linkTrailer= models.URLField(blank=True, null=True)
+    
 
     class Meta:
         verbose_name= 'pelicula'

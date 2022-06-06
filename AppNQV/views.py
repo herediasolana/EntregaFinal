@@ -62,7 +62,6 @@ def plataformasFormulario(request):
         miFormularioPlataformas= PlataformasFormulario()
     return render(request, 'plataformasFormulario.html',{'miFormularioPlataformas':miFormularioPlataformas})
 
-
 def peliculasFormulario(request):
     if request.method=='POST':
         miFormularioPeliculas=PeliculasFormulario(request.POST)
@@ -76,6 +75,7 @@ def peliculasFormulario(request):
             clasificacion=informacion['clasificacion'],
             fechaDeEstreno=informacion['fechaDeEstreno'],
             oscar=informacion['oscar'],
+            imagen=informacion['imagen'],
             )
             peliculas.save()
             return render (request,"peliculas.html")

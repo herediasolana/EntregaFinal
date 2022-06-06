@@ -28,6 +28,7 @@ class PlataformasFormulario(forms.ModelForm):
     class Meta:
         model = Plataformas
         fields="__all__"
+        help_texts={'duracion':'duracion estimada en minutos'}
 #       fields= ['nombre', 'cantidadUsuarios', 'cantidadPeliculasDisponibles']--> puedo seleccionar los campos que necesite!
 
 class ActoresFormulario(forms.ModelForm):
