@@ -19,15 +19,16 @@
                 {% for pelicula in peliculas %}
                 <div class="card text-center">
                     <div class="card-header">
-                        {{pelicula.nombre}}
+                        <h2>{{pelicula.nombre}}</h2>
                     </div>
                     <div class="card-body">
                         <img src="{{pelicula.imagen}}" class="card-img-top" alt="...">
-                        <h5 class="card-title">{{pelicula.clasificacion}}</h5>
-                        <p class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</p>
-                        <p class="card-text">Puntuación: {{pelicula.ratingIMDB}}</p>
-                        <p class="card-text">Duración: {{pelicula.duracion}}</p>
-                        <a href="{{pelicula.linkTrailer}}" class="btn btn-primary">Ver trailer</a>
+                        <h3 class="card-title">Categoría: {{pelicula.clasificacion}}</h3>
+                        <h3 class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</h3>
+                        <h3 class="card-text">Puntuación: {{pelicula.ratingIMDB}}</h3>
+                        <h3 class="card-text">Duración: {{pelicula.duracion}}</h3>
+                        <p></p>
+                        <a href="{{pelicula.linkTrailer}}" class="btn btn-dark" target="_blank">Ver trailer</a>
                     </div>
                     <div class="card-footer text-muted">
                 
