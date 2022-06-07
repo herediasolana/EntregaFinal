@@ -19,10 +19,10 @@ class Peliculas(models.Model):
     nombre= models.CharField(max_length=40,blank=True, null=True)
     duracion= models.IntegerField(blank=True, null=True)
     clasificacion= models.CharField(max_length=20, choices=CATEGORIAS, default='drama')
-    fechaDeEstreno= models.DateField(blank=True, null=True)
+    fechaDeEstreno= models.DateField(blank=True, null=True, verbose_name= 'Fecha de estreno')
     oscar= models.BooleanField(default=False)
-    ratingIMDB= models.FloatField(blank=True, null=True)
-    linkTrailer= models.URLField(blank=True, null=True)
+    ratingIMDB= models.FloatField(blank=True, null=True, verbose_name= 'Rating IMDB')
+    linkTrailer= models.URLField(blank=True, null=True, verbose_name= 'Link Trailer')
     
 
     class Meta:
@@ -35,7 +35,7 @@ class Actores(models.Model):
     apellido= models.CharField(max_length=40, blank=True, null=True)
     edad= models.IntegerField(blank=True, null=True)
     origen= models.CharField(max_length=40, blank=True, null=True)
-    fechaDeNacimiento= models.DateField(blank=True, null=True)
+    fechaDeNacimiento= models.DateField(blank=True, null=True, verbose_name= 'Fecha de Nacimiento')
 
     class Meta:
         verbose_name= 'actor'
@@ -44,9 +44,9 @@ class Actores(models.Model):
 #---------------CLASE-PLATAFORMAS-------------------#
 class Plataformas(models.Model):
     nombre= models.CharField(max_length=40,blank=True, null=True)
-    cantidadUsuarios=models.IntegerField(blank=True, null=True)
-    cantidadPeliculasDisponibles=models.IntegerField(blank=True, null=True)
-    precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    cantidadUsuarios=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de Usuarios')
+    cantidadPeliculasDisponibles=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de peliculas disponibles')
+    precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name= 'Precio de suscripcion')
 
     class Meta:
         verbose_name= 'plataforma'
