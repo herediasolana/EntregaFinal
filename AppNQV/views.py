@@ -112,3 +112,38 @@ class BorrarPlataforma(DeleteView):
     model = Plataformas
     template_name = 'BorrarPlataforma.html'
 
+
+
+
+############################ DETALLES DE FORMULARIOS ############################
+def detalle_plataformas(request, pk):
+    try:
+        plataformas = Plataformas.objects.get(id=pk)
+        context = {'plataformas':plataformas}
+        return render(request, 'plataformaDetalle.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'plataformas.html', context=context)
+
+def detalle_actores(request, pk):
+    try:
+        actores = Actores.objects.get(id=pk)
+        context = {'actores':actores}
+        return render(request, 'actoresDetalle.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'actores.html', context=context)
+
+
+def detalle_peliculas(request, pk):
+    try:
+        peliculas = Peliculas.objects.get(id=pk)
+        context = {'peliculas':peliculas}
+        return render(request, 'peliculasDetalle.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'peliculas.html', context=context)
+
+
+
+

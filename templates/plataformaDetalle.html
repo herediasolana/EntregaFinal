@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <div>
+            <div>
+                <h1>Detalle de Plataformas</h1>
+                <h4></h4>
+            </div>
+           
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2></li>
+                <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidad_Usuarios}}</li>
+                <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataforma.cantidadPeliculasDisponibles}} </li>
+                <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataforma.precio_Suscripcion}} /mes</li>
+                
+                <p></p>
+            </ul>
+            
+        </div>
+        <a href="/AppNQV/plataformasFormulario" button type="button" class="btn btn-light"
+            style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
+            Agregar Plataformas
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5 ">
+    <div class="container">
+        <div>
+            <div>
+                <h1>Detalle de Actores</h1>
+                <h4></h4>
+            </div>
+            
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark"><h2>{{actor.nombre}} {{actor.apellido}}</h2></li>
+                <li class="list-group-item list-group-item-secondary">Edad: {{actor.edad}}</li>
+                <li class="list-group-item list-group-item-secondary">Origen: {{actor.origen}} </li>
+                <li class="list-group-item list-group-item-secondary">Fecha de Nacimiento: {{actor.fechaDeNacimiento}} </li>
+                
+                <p></p>
+            </ul>
+           
+        </div>
+        <a href="/AppNQV/actoresFormulario" button type="button" class="btn btn-light"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+           
+        </a>
+    </div>
+    
+</section>
+{% endblock %}

@@ -14,4 +14,4 @@ class PeliculasAdmin(admin.ModelAdmin):
 
 @admin.register(Plataformas)
 class PlataformasAdmin(admin.ModelAdmin):
-    list_display = ['nombre','cantidadUsuarios', 'cantidadPeliculasDisponibles', 'precioSuscripcion']
+    list_display = ['nombre','cantidadUsuarios', 'precioSuscripcion']
