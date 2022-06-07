@@ -8,9 +8,6 @@
             <h4></h4>
         </div>
         <div>
-            
-            
-            {%if plataforma in plataformas%}
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2></li>
                 <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidadUsuarios}}</li>
@@ -19,9 +16,6 @@
                 <p></p>
             </ul>
             
-            {% elif miFormularioPlataformas.errors %}
-            <p style="color: red;"> Estan mal los datos, revisar</p>
-            {% endif %}
             <form action="" method="POST">
                 {% csrf_token %}
                 <table>

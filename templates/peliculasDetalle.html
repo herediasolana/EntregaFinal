@@ -11,13 +11,13 @@
             </div>
             
             <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{pelicula.nombre}}</h2> </li>
-                <li class="list-group-item list-group-item-secondary">Duración: {{pelicula.duracion}} minutos</li>
-                <li class="list-group-item list-group-item-secondary">Clasificación: {{pelicula.clasificacion}}</li>
-                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{pelicula.fecha_De_Estreno}}</li>
+                <li class="list-group-item list-group-item-dark"><h2>{{peliculas.nombre}}</h2> </li>
+                <li class="list-group-item list-group-item-secondary">Duración: {{peliculas.duracion}} minutos</li>
+                <li class="list-group-item list-group-item-secondary">Clasificación: {{peliculas.clasificacion}}</li>
+                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{peliculas.fecha_De_Estreno}}</li>
                 <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
                     {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
-                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
+                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{peliculas.ratingIMDB}} </li>
                 <p></p>
             </ul>
             
