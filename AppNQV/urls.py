@@ -1,6 +1,6 @@
 from django.urls import include, path
 from django.contrib import admin
-from AppNQV.views import detalle_peliculas, detalle_actores
+from AppNQV.views import detalle_peliculas, detalle_actores, detalle_plataformas
 from AppNQV import views
 
 
@@ -16,5 +16,5 @@ urlpatterns = [
     path('busqueda',views.buscar_view),#pagina de busqueda
     path('peliculas-Detalle/<int:pk>/', detalle_peliculas, name='detalle_peliculas'),
     path('actores-Detalle/<int:pk>/', detalle_actores, name='detalle_actores'),
-    path('plataformas-Detalle/<int:pk>/', views.detalle_plataformas, name='detalle_plataformas'),
+    path('plataformas-Detalle/<int:pk>/', detalle_plataformas, name='detalle_plataformas'),
 ]
