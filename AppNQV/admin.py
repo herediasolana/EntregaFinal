@@ -6,12 +6,12 @@ from AppNQV.models import Actores, Peliculas, Plataformas
 
 @admin.register(Actores)
 class ActoresAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'apellido', 'edad']
+    list_display = ['nombre', 'apellido', 'edad', 'fechaDeNacimiento']
 
 @admin.register(Peliculas)
 class PeliculasAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'duracion', 'clasificacion']
+    list_display = ['nombre', 'duracion', 'clasificacion', 'fechaDeEstreno']
 
 @admin.register(Plataformas)
 class PlataformasAdmin(admin.ModelAdmin):
-    list_display = ['nombre','cantidadUsuarios', 'precioSuscripcion']
+    list_display = ['nombre','cantidadUsuarios', 'precioSuscripcion', 'cantidadPeliculasDisponibles']
