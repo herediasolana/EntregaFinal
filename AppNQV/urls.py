@@ -13,4 +13,5 @@ urlpatterns = [
     path('actoresFormulario', views.actoresFormulario),#formulario actores
     path('plataformasFormulario', views.plataformasFormulario),#formulario plataformas
     path('busqueda',views.buscar_view),#pagina de busqueda
+    #borrar plataforma
 ]

@@ -4,6 +4,14 @@ from AppNQV.models import Actores, Peliculas, Plataformas
 
 # Register your models here.
 
-admin.site.register(Actores)
-admin.site.register(Peliculas)
-admin.site.register(Plataformas)
+@admin.register(Actores)
+class ActoresAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'apellido', 'edad']
+
+@admin.register(Peliculas)
+class PeliculasAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'duracion', 'clasificacion']
+
+@admin.register(Plataformas)
+class PlataformasAdmin(admin.ModelAdmin):
+    list_display = ['nombre','cantidadUsuarios', 'cantidadPeliculasDisponibles', 'precioSuscripcion']

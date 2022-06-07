@@ -22,7 +22,8 @@
             {% elif miFormularioPlataformas.errors %}
             <p style="color: red;"> Estan mal los datos, revisar</p>
             {% endif %}
-            <form action="" method="POST">{% csrf_token %}
+            <form action="" method="POST">
+                {% csrf_token %}
                 <table>
 
 

@@ -2,6 +2,8 @@ from unicodedata import name
 from django.shortcuts import render
 from AppNQV.forms import ActoresFormulario, PeliculasFormulario, PlataformasFormulario
 from AppNQV.models import Actores, Peliculas, Plataformas
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+
 
 # Create your views here.
 
@@ -102,4 +104,11 @@ def actoresFormulario(request):
     else:
         miFormularioActores= ActoresFormulario()
     return render(request, 'actoresFormulario.html',{'miFormularioActores':miFormularioActores})
+
+
+    ########################## ELIMINAR FORMULARIOS ###################################
+
+class BorrarPlataforma(DeleteView):
+    model = Plataformas
+    template_name = 'BorrarPlataforma.html'
 
