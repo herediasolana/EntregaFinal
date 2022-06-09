@@ -1,14 +1,14 @@
 {% extends "padre.html" %}
 {% block titulo %}
-    Borrar Plataforma
+    Borrar Peliculas
 {% endblock %}
 
-{{massage3}}
+{{massage4}}
 
 {% block contenidoQueCambia %}
 
 
-    <h3 style="color: red">Estas por eliminar la plataforma {{plataformas.name}}, estas seguro?</h3>
+    <h3 style="color: red">Estas por eliminar la pelicula {{peliculas.name}}, estas seguro?</h3>
 
     <form method = "POST">
         {% csrf_token %}

@@ -7,6 +7,9 @@
             <div>
                 <h1>Detalle de Actores</h1>
                 <h4></h4>
+
+            {{massage2}}
+
             </div>
             
             <ul class="list-group">
@@ -14,7 +17,8 @@
                 <li class="list-group-item list-group-item-secondary">Edad: {{actores.edad}}</li>
                 <li class="list-group-item list-group-item-secondary">Origen: {{actores.origen}} </li>
                 <li class="list-group-item list-group-item-secondary">Fecha de Nacimiento: {{actores.fechaDeNacimiento}} </li>
-                
+                <a href="/AppNQV/PlataformaEditar/{{actores.id}}/" class="btn btn-primary">Editar</a>
+                <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger">Eliminar</a>
                 <p></p>
             </ul>
            

@@ -49,6 +49,7 @@ def plataformasFormulario(request):
     if request.method=='POST':
         miFormularioPlataformas=PlataformasFormulario(request.POST)
         print(miFormularioPlataformas)
+        context = {'massage1': 'PLATAFORMA CREADA CORRECTAMENTE'}
 
         if miFormularioPlataformas.is_valid:
             informacion =miFormularioPlataformas.cleaned_data
@@ -59,7 +60,7 @@ def plataformasFormulario(request):
             precioSuscripcion=informacion['precioSuscripcion'],
             )
             plataformas.save()
-            return render (request,"plataformas.html")
+            return render (request,"plataformasFormulario.html", context=context)
     else:
         miFormularioPlataformas= PlataformasFormulario()
     return render(request, 'plataformasFormulario.html',{'miFormularioPlataformas':miFormularioPlataformas})
@@ -68,6 +69,7 @@ def peliculasFormulario(request):
     if request.method=='POST':
         miFormularioPeliculas=PeliculasFormulario(request.POST)
         print(miFormularioPeliculas)
+        context = {'massage5': 'PELICULA CREADA CORRECTAMENTE'}
 
         if miFormularioPeliculas.is_valid:
             informacion =miFormularioPeliculas.cleaned_data
@@ -77,10 +79,10 @@ def peliculasFormulario(request):
             clasificacion=informacion['clasificacion'],
             fechaDeEstreno=informacion['fechaDeEstreno'],
             oscar=informacion['oscar'],
-            imagen=informacion['imagen'],
+            #imagen=informacion['imagen'],
             )
             peliculas.save()
-            return render (request,"peliculas.html")
+            return render (request,"peliculas.html", context=context)
     else:
         miFormularioPeliculas= PeliculasFormulario()
     return render(request, 'peliculasFormulario.html',{'miFormularioPeliculas':miFormularioPeliculas})
@@ -89,6 +91,7 @@ def actoresFormulario(request):
     if request.method=='POST':
         miFormularioActores=ActoresFormulario(request.POST)
         print(miFormularioActores)
+        context = {'massage2': 'ACTOR CREADO/A CORRECTAMENTE'}
 
         if miFormularioActores.is_valid:
             informacion =miFormularioActores.cleaned_data
@@ -100,7 +103,7 @@ def actoresFormulario(request):
             fechaDeNacimiento=informacion['fechaDeNacimiento'],
             )
             actores.save()
-            return render (request,"actores.html")
+            return render (request,"actores.html", context=context)
     else:
         miFormularioActores= ActoresFormulario()
     return render(request, 'actoresFormulario.html',{'miFormularioActores':miFormularioActores})
@@ -108,9 +111,38 @@ def actoresFormulario(request):
 
     ########################## ELIMINAR FORMULARIOS ###################################
 
-class BorrarPlataforma(DeleteView):
-    model = Plataformas
-    template_name = 'BorrarPlataforma.html'
+def BorrarPlataforma(request, pk):
+   try:
+       plataforma = Plataformas.objects.get(id=pk)
+       plataforma.delete()
+       context = {'massage': 'PLATAFORMA ELIMINADA CORRECTAMENTE'}
+       return render (request, 'plataformas.html', context=context)
+   except:
+       context = {'error': 'Volve a intentar otra vez'}
+       return render(request, 'plataformas.html', context=context)
+
+
+def BorrarActor(request, pk):
+   try:
+       actores = Actores.objects.get(id=pk)
+       actores.delete()
+       context = {'massage3': 'ACTOR ELIMINADO/A CORRECTAMENTE'}
+       return render (request, 'actores.html', context=context)
+   except:
+       context = {'error': 'Volve a intentar otra vez'}
+       return render(request, 'actores.html', context=context)
+
+
+def BorrarPelicula(request, pk):
+   try:
+       pelicula = Peliculas.objects.get(id=pk)
+       pelicula.delete()
+       context = {'massage4': 'PELICULA ELIMINADA CORRECTAMENTE'}
+       return render (request, 'peliculas.html', context=context)
+   except:
+       context = {'error': 'Volve a intentar otra vez'}
+       return render(request, 'peliculas.html', context=context)
+
 
 
 
