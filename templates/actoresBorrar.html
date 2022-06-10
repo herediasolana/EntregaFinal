@@ -7,13 +7,17 @@
 
 {% block contenidoQueCambia %}
 
+{% if actores %}
+    <h3 style="color: red">Estas por eliminar la Actor/a {{actores.nombre}}, estas seguro?</h3>
 
-    <h3 style="color: red">Estas por eliminar la plataforma {{plataformas.name}}, estas seguro?</h3>
-
-    <form method = "POST">
+    <form action = '/AppNQV/actores-borrar/{{actores.id}}/' method = "POST">
         {% csrf_token %}
         <button class="btn btn-danger" type="submit">Eliminar</button>
     </form>
+{% else %}
 
+{{massage3}}
+
+{%endif%}
 
 {% endblock %}

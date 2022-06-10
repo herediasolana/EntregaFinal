@@ -7,13 +7,17 @@
 
 {% block contenidoQueCambia %}
 
+{% if pelicula %}
+    <h3 style="color: red">Estas por eliminar la Pelicula {{pelicula.nombre}}, estas seguro?</h3>
 
-    <h3 style="color: red">Estas por eliminar la pelicula {{peliculas.name}}, estas seguro?</h3>
-
-    <form method = "POST">
+    <form action = '/AppNQV/peliculas-borrar/{{pelicula.id}}/' method = "POST">
         {% csrf_token %}
         <button class="btn btn-danger" type="submit">Eliminar</button>
     </form>
+{% else %}
+    
+{{massage4}}
 
+{%endif%}
 
 {% endblock %}
