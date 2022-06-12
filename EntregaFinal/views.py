@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 #- autenticacion
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from EntregaFinal.forms import User_registration_form
 
 ########################## HOME #################################
 def index(request):
@@ -51,7 +52,8 @@ def logout_view(request):
 ########################## REGISTER #################################
 def register_view(request):
     if request.method =="POST":
-        form = UserCreationForm(request.POST)
+        #form = UserCreationForm(request.POST) -->reemplazo el de django por mi formulario creado
+        form = User_registration_form(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
@@ -62,11 +64,11 @@ def register_view(request):
             return render(request, 'home.html',context=context)
         else:
             errors=form.errors
-            form=UserCreationForm()
+            form=User_registration_form()
             context = {'errors':errors, 'form':form}
             return render(request, 'auth/register.html', context=context)
 
     else:
-        form = UserCreationForm()
+        form = User_registration_form()
         context = {'form':form}
         return render (request, 'auth/register.html', context=context)

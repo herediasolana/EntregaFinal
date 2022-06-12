@@ -5,6 +5,7 @@ from AppNQV.models import Actores, Peliculas, Plataformas
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 
+
 # Create your views here.
 
 #######################BUSQUEDA#####################################
