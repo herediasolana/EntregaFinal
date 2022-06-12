@@ -68,7 +68,7 @@
                     id="dropdownMenuLink" data-bs-toggle="dropdown" 
                     aria-expanded="false"  style="margin-right: 10pxnone"
                     >
-                    User: {{username}}
+                    User: {{user | capfirst}}
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="/login">Cuenta</a></li>
@@ -76,18 +76,8 @@
                         </ul>
                 </div>
                 {% else %}
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" 
-                    id="dropdownMenuLink" data-bs-toggle="dropdown" 
-                    aria-expanded="false"  style="margin-right: 10pxnone"
-                    >
-                    Login
-                    </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            <li><a class="dropdown-item" href="/register">Register</a></li>
-                        </ul>
-                </div>
+                <button type="button" class="btn btn-secondary">
+                    <a class="nav-link" href="/login">Login</a></button>
                 {% endif %}
                 <!--FINUSUARIO-->
 

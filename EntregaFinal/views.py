@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 #- autenticacion
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
 ########################## HOME #################################
@@ -47,3 +47,26 @@ def logout_view(request):
     logout(request)
     context= {'message': f'Se ha cerrado sesion exitosamente'}
     return render (request,'home.html', context=context)
+
+########################## REGISTER #################################
+def register_view(request):
+    if request.method =="POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            context= {'message': f'Usuario creado correctamente - {username}'}
+            return render(request, 'home.html',context=context)
+        else:
+            errors=form.errors
+            form=UserCreationForm()
+            context = {'errors':errors, 'form':form}
+            return render(request, 'auth/register.html', context=context)
+
+    else:
+        form = UserCreationForm()
+        context = {'form':form}
+        return render (request, 'auth/register.html', context=context)
