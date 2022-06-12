@@ -69,7 +69,7 @@ def peliculasFormulario(request):
     if request.method=='POST':
         miFormularioPeliculas=PeliculasFormulario(request.POST)
         print(miFormularioPeliculas)
-        context = {'massage5': 'PELICULA CREADA CORRECTAMENTE'}
+        context = {'message5': 'PELICULA CREADA CORRECTAMENTE'}
 
         if miFormularioPeliculas.is_valid:
             informacion =miFormularioPeliculas.cleaned_data
@@ -91,7 +91,7 @@ def actoresFormulario(request):
     if request.method=='POST':
         miFormularioActores=ActoresFormulario(request.POST)
         print(miFormularioActores)
-        context = {'massage2': 'ACTOR CREADO/A CORRECTAMENTE'}
+        context = {'message2': 'ACTOR CREADO/A CORRECTAMENTE'}
 
         if miFormularioActores.is_valid:
             informacion =miFormularioActores.cleaned_data
@@ -112,51 +112,51 @@ def actoresFormulario(request):
     ########################## ELIMINAR FORMULARIOS ###################################
 
 def BorrarPlataforma(request, pk):
-   try:
-       if request.method == 'GET':
-         plataforma = Plataformas.objects.get(id=pk)
-         context = {'plataforma':plataforma}
-         return render(request, 'BorrarPlataforma.html', context=context)
-       else:
-         plataforma = Plataformas.objects.get(id=pk)
-         plataforma.delete()
-         context = {'massage': 'PLATAFORMA ELIMINADA CORRECTAMENTE'}
-         return render (request, 'plataformasFormulario.html', context=context)
-   except:
-       context = {'error': 'Volve a intentar otra vez'}
-       return render(request, 'plataformasFormulario.html', context=context)
+    try:
+        if request.method == 'GET':
+            plataforma = Plataformas.objects.get(id=pk)
+            context = {'plataforma': plataforma}
+            return render(request, 'BorrarPlataforma.html', context=context)
+        else:
+            plataforma = Plataformas.objects.get(id=pk)
+            plataforma.delete()
+            context = {'message': 'PLATAFORMA ELIMINADA CORRECTAMENTE'}
+            return render(request, 'plataformasFormulario.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'plataformasFormulario.html', context=context)
 
 
 def BorrarActor(request, pk):
-   try:
-       if request.method == 'GET':
-         actores = Actores.objects.get(id=pk)
-         context = {'actores':actores}
-         return render(request, 'actoresBorrar.html', context=context)
-       else:
-         actores = Actores.objects.get(id=pk)
-         actores.delete()
-         context = {'massage3': 'ACTOR ELIMINADO/A CORRECTAMENTE'}
-         return render (request, 'actoresFormulario.html', context=context)
-   except:
-       context = {'error': 'Volve a intentar otra vez'}
-       return render(request, 'actoresFormulario.html', context=context)
+    try:
+        if request.method == 'GET':
+            actores = Actores.objects.get(id=pk)
+            context = {'actores':actores}
+            return render(request, 'actoresBorrar.html', context=context)
+        else:
+            actores = Actores.objects.get(id=pk)
+            actores.delete()
+            context = {'message3': 'ACTOR ELIMINADO/A CORRECTAMENTE'}
+            return render (request, 'actoresFormulario.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'actoresFormulario.html', context=context)
 
 
 def BorrarPelicula(request, pk):
-   try:
-       if request.method == 'GET':
-         pelicula = Peliculas.objects.get(id=pk)
-         context = {'pelicula':pelicula}
-         return render(request, 'peliculasBorrar.html', context=context)
-       else:
-        pelicula = Peliculas.objects.get(id=pk)
-        pelicula.delete()
-        context = {'massage4': 'PELICULA ELIMINADA CORRECTAMENTE'}
-        return render (request, 'peliculasFormulario.html', context=context)
-   except:
-       context = {'error': 'Volve a intentar otra vez'}
-       return render(request, 'peliculasFormulario.html', context=context)
+    try:
+        if request.method == 'GET':
+            pelicula = Peliculas.objects.get(id=pk)
+            context = {'pelicula':pelicula}
+            return render(request, 'peliculasBorrar.html', context=context)
+        else:
+            pelicula = Peliculas.objects.get(id=pk)
+            pelicula.delete()
+            context = {'message4': 'PELICULA ELIMINADA CORRECTAMENTE'}
+            return render (request, 'peliculasFormulario.html', context=context)
+    except:
+        context = {'error': 'Volve a intentar otra vez'}
+        return render(request, 'peliculasFormulario.html', context=context)
 
 
 
