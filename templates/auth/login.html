@@ -5,8 +5,12 @@
     <div class="container">
         <div>
             <div>
+
                 <h1>Login</h1>
                 <h4>Complete los campos para iniciar sesion</h4>
+                {% if errors %}
+                <div class="alert alert-danger" role="alert">{{errors}}</div>
+                {% endif %}
                 <form action ='' method = 'POST' style="margin-left: 40rem;margin-top:7rem">
                 {% csrf_token%}
                 <table>

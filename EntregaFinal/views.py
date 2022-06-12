@@ -23,6 +23,15 @@ def login_view(request):
                 context= {'message': f'Hola {username}!'}
                 return render(request, 'home.html',context=context)
                 #return redirect
+            else:
+                context = {'error':'No existe el usuario especificado'}
+                form=AuthenticationForm()
+                return render(request, 'auth/login.html', context=context)
+        else:
+            errors=form.errors
+            form=AuthenticationForm()
+            context = {'errors':errors, 'form':form}
+            return render(request, 'auth/login.html', context=context)
 
     else:
         form= AuthenticationForm()
