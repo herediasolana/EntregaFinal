@@ -2,9 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 #- autenticacion
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
-
+########################## HOME #################################
+def index(request):
+    print(request.user)
+    print(request.user.is_authenticated)
+    return render (request, 'home.html')
 
 ########################## LOGIN #################################
 def login_view(request):
@@ -38,9 +42,8 @@ def login_view(request):
         context = {'form': form}
         return render(request, 'auth/login.html', context=context)
 
-
-########################## HOME #################################
-def index(request):
-    print(request.user)
-    print(request.user.is_authenticated)
-    return render (request, 'home.html')
+########################## LOGOUT #################################
+def logout_view(request):
+    logout(request)
+    context= {'message': f'Se ha cerrado sesion exitosamente'}
+    return render (request,'home.html', context=context)
