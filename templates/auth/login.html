@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <div>
+            <h1>Login</h1>
+        </div>
+    </div>
+</section>
+<div class="card text-center">
+    <div class="card-header">
+        <h2>Complete los datos para iniciar sesion</h2>
+    </div>
+
+    <div class="mb-3">
+        {% if errors %}
+        <div class="container"><div class="alert alert-danger" role="alert">{{errors}}</div></div>
+        {% endif %}
+                <form action ='' method = 'POST' style="margin-left: 40rem;margin-top:7rem">
+                {% csrf_token%}
+                <table>
+                    {{form.as_table}}                    
+                </table>
+                <input type="submit",value='Ingresar'>
+                </form>
+    </div>
+    <div class="card-footer text-muted">
+        <h3>No tiene un usuario?</h3>
+        <div class="container"><button type="button" class="btn btn-danger">
+            <a class="nav-link" href="/register">Registrarse</a></button></div>
+{% endblock %}

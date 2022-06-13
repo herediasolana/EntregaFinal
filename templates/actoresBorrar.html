@@ -1,23 +1,42 @@
 {% extends "padre.html" %}
-{% block titulo %}
-    Borrar Actores
-{% endblock %}
-
-{{massage2}}
-
+{% load static %}
 {% block contenidoQueCambia %}
-
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <h1>Eliminar Actor</h1>
+        <p></p>
+    </div>
+</section>
 {% if actores %}
-    <h3 style="color: red">Estas por eliminar la Actor/a {{actores.nombre}}, estas seguro?</h3>
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-danger" role="alert">
+            <h2>Estas por borrar {{actores.nombre}} {{actores.apellido}}, estas seguro?</h2>
+            <a href="/AppNQV/actores" class="alert-link">No, Volver</a>.
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Nombre: {{actores.nombre}} {{actores.apellido}}</h3>
+            <h3 class="card-text">Edad: {{actores.edad}}</h3>
+            <h3 class="card-text">Origen: {{actores.origen}}</h3>
+            <h3 class="card-text">Fecha de Nacimiento: {{actores.fechaDeNacimiento}}</h3>
+            
+            <p></p>        
+        </div>
+    </div>
 
-    <form action = '/AppNQV/actores-borrar/{{actores.id}}/' method = "POST">
-        {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Eliminar</button>
-    </form>
+    <div class="card-footer text-muted">
+        <form action = '/AppNQV/actores-borrar/{{actores.id}}/' method = "POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+        </form>
+</section>
 {% else %}
-
-{{massage3}}
-
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-success" role="alert">
+            <h2>{{message3}}</h2>
+            <a href="/AppNQV/actores" class="alert-link">Volver</a>.
+        </div>
+    
 {%endif%}
-
 {% endblock %}

@@ -5,17 +5,17 @@
     <div class="container">
         <div>
             <h1>Formulario - Agregar una Plataforma</h1>
-            <h4></h4>
+            <h4>{{message1}}</h4>
 
         
-        {{massage1}}
+        
         
             <form action="" method="POST">
                 {% csrf_token %}
                 <table>
 
 
-                    {{ miFormularioPlataformas.as_table }}
+                    {{ form.as_table }}
 
 
                 </table>

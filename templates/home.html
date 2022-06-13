@@ -1,18 +1,31 @@
 {% extends "padre.html" %}
 {% load static %}
 {% block contenidoQueCambia %}
-<section class="bg-dark text-light p-5 text-center">
+<section class="bg-dark text-dark p-5 text-center">
+    <div class="container">
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+        </div>
+    </div>
+</section><section class="bg-dark text-light p-5 text-center">
     <div class="container">
         <div>
             <div>
                 <h1 class="display-1">NADA QUE VER</h1><h1></h1>
-                <h1 class="display-6">Recomendaciones de Streaming</h1><h4></h4>
+                <h1 class="display-6">Recomendaciones de Streaming</h1>
             </div>
             <p></p>
-            <button type="button" class="btn btn-outline-danger">Quiero mi recomendacion! (todavía no disponible)</button>
+            
             
         </div>
     </div>
+</section>
+<section class="bg-dark text-dark p-5 text-center">
+    <div class="container">
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+            {{message}}
+        </div>
+    </div>
+    <button type="button" class="btn btn-outline-danger">Quiero mi recomendacion! (todavía no disponible)</button>
 </section>
 <div class="text-center">
     <img src="https://i.pinimg.com/originals/0c/cb/26/0ccb26a7d91a3bb85374b327739c9ab4.jpg"

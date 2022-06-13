@@ -6,17 +6,17 @@
         <div>
             <div>
                 <h1>Formulario - Agregar una Pelicula</h1>
-                {{massage4}}
+                {{message4}}
                 <h4></h4>
             </div>
             <form action="" method="POST">{% csrf_token %}
                 <table>
-                    {{ miFormularioPeliculas.as_table }}
+                    {{ form.as_table }}
                 </table>
                 <input type="submit", value="Enviar">
             </form>
             {% if miFormularioPeliculas.errors %}
-            <p style="color: red;"> Estan mal los datos, revisar</p>
+            <div class="alert alert-danger" role="alert">Estan mal los datos, revisar</div>
             {% endif %}
         </div>
     </div>

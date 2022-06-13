@@ -1,23 +1,42 @@
 {% extends "padre.html" %}
-{% block titulo %}
-    Borrar Peliculas
-{% endblock %}
-
-{{massage4}}
-
+{% load static %}
 {% block contenidoQueCambia %}
-
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <h1>Eliminar Pelicula</h1>
+        <p></p>
+    </div>
+</section>
 {% if pelicula %}
-    <h3 style="color: red">Estas por eliminar la Pelicula {{pelicula.nombre}}, estas seguro?</h3>
-
-    <form action = '/AppNQV/peliculas-borrar/{{pelicula.id}}/' method = "POST">
-        {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Eliminar</button>
-    </form>
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-danger" role="alert">
+            <h2>Estas por borrar {{pelicula.nombre}}, estas seguro?</h2>
+            <a href="/AppNQV/peliculas" class="alert-link">No, Volver</a>.
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">Categoría: {{pelicula.clasificacion}}</h3>
+        <h3 class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</h3>
+        <h3 class="card-text">Puntuación: {{pelicula.ratingIMDB}}</h3>
+        <h3 class="card-text">Duración: {{pelicula.duracion}}</h3>
+        <h3 class="card-text">Ganó Oscar?: {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </h3>
+        <p></p>        
+    </div>
+    <div class="card-footer text-muted">
+        <form action = '/AppNQV/peliculas-borrar/{{pelicula.id}}/' method = "POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+        </form>
+</section>
 {% else %}
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-success" role="alert">
+            <h2>{{message4}}</h2>
+            <a href="/AppNQV/peliculas" class="alert-link">Volver</a>.
+        </div>
     
-{{massage4}}
-
 {%endif%}
-
 {% endblock %}
