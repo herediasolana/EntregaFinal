@@ -1,3 +1,4 @@
+from audioop import reverse
 from unicodedata import name
 from django.shortcuts import render
 from AppNQV.forms import ActoresFormulario, PeliculasFormulario, PlataformasFormulario
@@ -192,5 +193,35 @@ def detalle_peliculas(request, pk):
         return render(request, 'peliculas.html', context=context)
 
 
+############################ MODIFICAR FORMULARIOS  ####################################
+
+class PlataformaEditar(UpdateView):
+    model = Plataformas
+    template_name = 'PlataformaEditar.html'
+    fields = '__all__'
 
 
+    def get_success_url(self):
+        return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
+
+
+
+class ActoresEditar(UpdateView):
+    model = Actores
+    template_name = 'actoresEditar.html'
+    fields = '__all__'
+
+
+    def get_success_url(self):
+        return reverse ('actoresDetalle', kwargs = {'pk':self.object.pk})
+
+
+
+class PeliculasEditar(UpdateView):
+    model = Peliculas
+    template_name = 'peliculasEditar.html'
+    fields = '__all__'
+
+
+    def get_success_url(self):
+        return reverse ('peliculasDetalle', kwargs = {'pk':self.object.pk})

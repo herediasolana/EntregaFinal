@@ -2,7 +2,7 @@ from django.urls import include, path
 from django.contrib import admin
 from AppNQV.views import detalle_peliculas, detalle_actores, detalle_plataformas
 from AppNQV import views
-from AppNQV.views import BorrarPlataforma, BorrarActor, BorrarPelicula
+from AppNQV.views import BorrarPlataforma, BorrarActor, BorrarPelicula, PlataformaEditar, ActoresEditar, PeliculasEditar
 
 
 urlpatterns = [
@@ -21,4 +21,7 @@ urlpatterns = [
     path('plataformas-borrar/<int:pk>/', BorrarPlataforma, name= 'BorrarPlataforma'),
     path('actores-borrar/<int:pk>/', BorrarActor, name= 'BorrarActor'),
     path('peliculas-borrar/<int:pk>/', BorrarPelicula, name= 'BorrarPelicula'),
+    path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
+    path('actores-editar/<int:pk>/', ActoresEditar.as_view(), name= 'ActoresEditar'),
+    path('peliculas-editar/<int:pk>/', PeliculasEditar.as_view(), name= 'peliculasEditar'),
 ]

@@ -19,7 +19,7 @@
                 <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
                     {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
                 <li class="list-group-item list-group-item-secondary">Rating IMdB: {{peliculas.ratingIMDB}} </li>
-                <a href="/AppNQV/PlataformaEditar/{{actores.id}}/" class="btn btn-primary">Editar</a>
+                <a href="/AppNQV/peliculas-editar/{{peliculas.id}}/" class="btn btn-primary">Editar</a>
                 <a href="/AppNQV/peliculas-borrar/{{peliculas.id}}/" class="btn btn-danger">Eliminar</a>
                 <p></p>
             </ul>

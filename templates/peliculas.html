@@ -20,6 +20,7 @@
                 <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
                     {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
                 <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
+                <li class="list-group-item list-group-item-secondary">Link Trailer: {{pelicula.linkTrailer}} </li>
                 <a href="/AppNQV/peliculas-Detalle/{{pelicula.id}}/" class="btn btn-primary">Ver mas!</a>
                 <p></p>
             </ul>
