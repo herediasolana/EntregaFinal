@@ -3,28 +3,26 @@
 {% block contenidoQueCambia %}
 <section class="bg-dark text-light p-5">
     <div class="container">
-        <div>
-            <div>
-                <h1>Detalle de Plataformas</h1>
-                <h4></h4>
-
-
-                {{massage1}}
-                
-            </div>
-            
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{plataformas.nombre}}</h2></li>
-                <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataformas.cantidadUsuarios}}</li>
-                <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataformas.cantidadPeliculasDisponibles}} </li>
-                <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataformas.precioSuscripcion}} /mes</li>
-                <a href="/AppNQV/PlataformaEditar/{{plataformas.id}}/" class="btn btn-primary">Editar</a>
-                <a href="/AppNQV/plataformas-borrar/{{plataformas.id}}/" class="btn btn-danger">Eliminar</a>
-                <p></p>
-            </ul>
-            
-        </div>
-       
+        <h1>Plataformas</h1>
+        <p></p>
+    </div>
+</section>
+<div class="card text-center">
+    <div class="card-header">
+        <h2>{{plataformas.nombre}}</h2>
+        {{message1}}
+    </div>
+    <div class="card-body">
+        <h3 class="card-text">Cantidad de Usuarios Activos: {{plataformas.cantidadUsuarios}}</h3>
+        <h3 class="card-text">Peliculas Disponibles: {{plataformas.cantidadPeliculasDisponibles}} </h3>
+        <h3 class="card-text">Precio Suscripción: $ {{plataformas.precioSuscripcion}} /mes</h3>
+        <p></p>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+        <a href="/AppNQV/plataformas-editar/{{plataformas.id}}/" class="btn btn-dark" type="button">Editar</a>
+        <a href="/AppNQV/plataformas-borrar/{{plataformas.id}}/" class="btn btn-danger">Eliminar</a>
     </div>
 </section>
 {% endblock %}

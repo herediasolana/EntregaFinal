@@ -3,31 +3,30 @@
 {% block contenidoQueCambia %}
 <section class="bg-dark text-light p-5 ">
     <div class="container">
-        <div>
-            <div>
-                <h1>Detalle de Actores</h1>
+        <h1>Actores</h1>
                 <h4></h4>
-
             {{message2}}
-
-            </div>
-            
+    </div>
+</section>
+<div class="card text-center">
+    <div class="card-header">
+        <h2>{{actores.nombre}} {{actores.apellido}}</h2>
+    </div>
+    <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{actores.nombre}} {{actores.apellido}}</h2></li>
-                <li class="list-group-item list-group-item-secondary">Edad: {{actores.edad}}</li>
-                <li class="list-group-item list-group-item-secondary">Origen: {{actores.origen}} </li>
-                <li class="list-group-item list-group-item-secondary">Fecha de Nacimiento: {{actores.fechaDeNacimiento}} </li>
-                <a href="/AppNQV/PlataformaEditar/{{actores.id}}/" class="btn btn-primary">Editar</a>
+                <h3 class="card-title">Info</h3>
+                <h3 class="card-text">Edad: {{actores.edad}}</h3>
+                <h3 class="card-text">Origen: {{actores.origen}} </h3>
+                <h3 class="card-text">Fecha de Nacimiento: {{actores.fechaDeNacimiento}} </h3>
+                <p></p>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+                <a href="/AppNQV/PlataformaEditar/{{actores.id}}/" class="btn btn-dark" type="button">Editar</a>
                 <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger">Eliminar</a>
                 <p></p>
             </ul>
-           
-        </div>
-        <a href="/AppNQV/actoresFormulario" button type="button" class="btn btn-light"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-           
-        </a>
     </div>
-    
 </section>
 {% endblock %}

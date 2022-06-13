@@ -1,8 +1,8 @@
 from django.urls import include, path
 from django.contrib import admin
-from AppNQV.views import detalle_peliculas, detalle_actores, detalle_plataformas
+
 from AppNQV import views
-from AppNQV.views import BorrarPlataforma, BorrarActor, BorrarPelicula
+from AppNQV.views import detalle_peliculas, detalle_actores, BorrarPlataforma, BorrarActor, BorrarPelicula, Lista_plataformas, Detalle_plataformas, Crear_plataforma, Crear_actor, Crear_pelicula
 
 
 urlpatterns = [
@@ -10,20 +10,20 @@ urlpatterns = [
     #listados
     path('peliculas', views.peliculas),#listado peliculas
     path('actores', views.actores),#listado actores
-    path('plataformas', views.plataformas),#listado plataformas
+    path('plataformas', Lista_plataformas.as_view(), name ='plataformas'),#listado plataformas
     path('datosCuriosos', views.datosCuriosos),#datos curiosos
     #crear formularios
-    path('peliculasFormulario', views.peliculasFormulario),#crear peliculas
-    path('actoresFormulario', views.actoresFormulario),#crear actores
-    path('plataformasFormulario', views.plataformasFormulario),#crear plataformas
+    path('peliculas-formulario', Crear_pelicula.as_view(), name= 'peliculasFormulario'),#crear peliculas
+    path('actores-formulario', Crear_actor.as_view(), name= 'actoresFormulario'),#crear actores
+    path('plataformas-formulario', Crear_plataforma.as_view(), name= 'plataformasFormulario'),#crear plataformas
     #busquedas
     path('busqueda',views.buscar_view),#pagina de busqueda
     #detalles
-    path('peliculas-Detalle/<int:pk>/', detalle_peliculas, name='detalle_peliculas'),
-    path('actores-Detalle/<int:pk>/', detalle_actores, name='detalle_actores'),
-    path('plataformas-Detalle/<int:pk>/', detalle_plataformas, name='detalle_plataformas'),
+    path('peliculas-detalle/<int:pk>/', detalle_peliculas, name='peliculasDetalle'),
+    path('actores-detalle/<int:pk>/', detalle_actores, name='actoresDetalle'),
+    path('plataformas-detalle/<int:pk>/', Detalle_plataformas.as_view(), name='plataformaDetalle'),
     #eliminar
-    path('plataformas-borrar/<int:pk>/', BorrarPlataforma, name= 'BorrarPlataforma'),
+    path('plataformas-borrar/<int:pk>/', BorrarPlataforma, name= 'plataformasBorrar'),
     path('actores-borrar/<int:pk>/', BorrarActor, name= 'BorrarActor'),
     path('peliculas-borrar/<int:pk>/', BorrarPelicula, name= 'BorrarPelicula'),
 ]

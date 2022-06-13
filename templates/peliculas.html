@@ -4,7 +4,7 @@
 <section class="bg-dark text-light p-5">
     <div class="container">
         <h1>Peliculas</h1>
-        <a href="/AppNQV/peliculasFormulario" button type="button" class="btn btn-outline-danger"
+        <a href="/AppNQV/peliculas-formulario" button type="button" class="btn btn-outline-danger"
         style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
         Agregar Peliculas
         </a>
@@ -21,7 +21,7 @@
                 <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
                     {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
                 <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
-                <a href="/AppNQV/peliculas-Detalle/{{pelicula.id}}/" class="btn btn-outline-light">Ver detalle</a>
+                <a href="/AppNQV/peliculas-detalle/{{pelicula.id}}/" class="btn btn-outline-light">Ver detalle</a>
                 <p></p>
             </ul>
         {% endfor %}
