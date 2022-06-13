@@ -3,14 +3,15 @@
 {% block contenidoQueCambia %}
 <section class="bg-dark text-light p-5">
     <div class="container">
-        <div>
-            <div>
-                <h1>Peliculas</h1>
+        <h1>Peliculas</h1>
+        <a href="/AppNQV/peliculasFormulario" button type="button" class="btn btn-outline-danger"
+        style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
+        Agregar Peliculas
+        </a>
                 {{message4}}
                 {{message5}}
                 <h4></h4>
                 <p></p>
-            </div>
             {% for pelicula in peliculas %}
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{pelicula.nombre}}</h2> </li>
@@ -20,16 +21,11 @@
                 <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
                     {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
                 <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
-                <a href="/AppNQV/peliculas-Detalle/{{pelicula.id}}/" class="btn btn-primary">Ver mas!</a>
+                <a href="/AppNQV/peliculas-Detalle/{{pelicula.id}}/" class="btn btn-outline-light">Ver detalle</a>
                 <p></p>
             </ul>
-            {% endfor %}
-        </div>
-        <a href="/AppNQV/peliculasFormulario" button type="button" class="btn btn-light"
-            style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
-            Agregar Peliculas
-        </a>
-
+        {% endfor %}
+            
     </div>
 </section>
 {% endblock %}

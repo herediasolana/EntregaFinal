@@ -45,12 +45,12 @@ def plataformas(request):
 
 
 
-#######################-FORMULARIOS#####################################
+#######################-CREAR #####################################
 def plataformasFormulario(request):
     if request.method=='POST':
         miFormularioPlataformas=PlataformasFormulario(request.POST)
         print(miFormularioPlataformas)
-        context = {'massage1': 'PLATAFORMA CREADA CORRECTAMENTE'}
+        context = {'message1': 'PLATAFORMA CREADA CORRECTAMENTE'}
 
         if miFormularioPlataformas.is_valid:
             informacion =miFormularioPlataformas.cleaned_data
@@ -65,6 +65,7 @@ def plataformasFormulario(request):
     else:
         miFormularioPlataformas= PlataformasFormulario()
     return render(request, 'plataformasFormulario.html',{'miFormularioPlataformas':miFormularioPlataformas})
+
 
 def peliculasFormulario(request):
     if request.method=='POST':
@@ -110,7 +111,7 @@ def actoresFormulario(request):
     return render(request, 'actoresFormulario.html',{'miFormularioActores':miFormularioActores})
 
 
-    ########################## ELIMINAR FORMULARIOS ###################################
+########################## ELIMINAR FORMULARIOS ###################################
 
 def BorrarPlataforma(request, pk):
     try:
@@ -154,10 +155,10 @@ def BorrarPelicula(request, pk):
             pelicula = Peliculas.objects.get(id=pk)
             pelicula.delete()
             context = {'message4': 'PELICULA ELIMINADA CORRECTAMENTE'}
-            return render (request, 'peliculasFormulario.html', context=context)
+            return render (request, 'peliculasBorrar.html', context=context)
     except:
-        context = {'error': 'Volve a intentar otra vez'}
-        return render(request, 'peliculasFormulario.html', context=context)
+        context = {'error': 'La pelicula no existe'}
+        return render(request, 'peliculas.html', context=context)
 
 
 
@@ -170,7 +171,7 @@ def detalle_plataformas(request, pk):
         context = {'plataformas':plataformas}
         return render(request, 'plataformaDetalle.html', context=context)
     except:
-        context = {'error': 'Volve a intentar otra vez'}
+        context = {'error': 'No fue posible encontrar la plataforma especificada'}
         return render(request, 'plataformas.html', context=context)
 
 def detalle_actores(request, pk):
@@ -179,7 +180,7 @@ def detalle_actores(request, pk):
         context = {'actores':actores}
         return render(request, 'actoresDetalle.html', context=context)
     except:
-        context = {'error': 'Volve a intentar otra vez'}
+        context = {'error': 'No fue posible encontrar el actor especificado'}
         return render(request, 'actores.html', context=context)
 
 
@@ -189,7 +190,7 @@ def detalle_peliculas(request, pk):
         context = {'peliculas':peliculas}
         return render(request, 'peliculasDetalle.html', context=context)
     except:
-        context = {'error': 'Volve a intentar otra vez'}
+        context = {'error': 'No fue posible encontrar la pelicula especificada'}
         return render(request, 'peliculas.html', context=context)
 
 

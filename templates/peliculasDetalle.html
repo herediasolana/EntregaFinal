@@ -3,33 +3,28 @@
 {% block contenidoQueCambia %}
 <section class="bg-dark text-light p-5">
     <div class="container">
-        <div>
-            <div>
-                <h1>Detalle de Peliculas</h1>
-                {{message4}}
-                <h4></h4>
-                <p></p>
-            </div>
-            
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{peliculas.nombre}}</h2> </li>
-                <li class="list-group-item list-group-item-secondary">Duración: {{peliculas.duracion}} minutos</li>
-                <li class="list-group-item list-group-item-secondary">Clasificación: {{peliculas.clasificacion}}</li>
-                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{peliculas.fecha_De_Estreno}}</li>
-                <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
-                    {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
-                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{peliculas.ratingIMDB}} </li>
-                <a href="/AppNQV/PlataformaEditar/{{actores.id}}/" class="btn btn-primary">Editar</a>
-                <a href="/AppNQV/peliculas-borrar/{{peliculas.id}}/" class="btn btn-danger">Eliminar</a>
-                <p></p>
-            </ul>
-            
-        </div>
-        <a href="/AppNQV/peliculasFormulario" button type="button" class="btn btn-light"
-            style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
-            Agregar Peliculas
-        </a>
-
+        <h1>Peliculas</h1>
+        <p></p>
+    </div>
+</section>
+<div class="card text-center">
+    <div class="card-header">
+        <h2>{{peliculas.nombre}}</h2>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">Categoría: {{peliculas.clasificacion}}</h3>
+        <h3 class="card-text">Estreno: {{peliculas.fechaDeEstreno}}</h3>
+        <h3 class="card-text">Puntuación: {{peliculas.ratingIMDB}}</h3>
+        <h3 class="card-text">Duración: {{peliculas.duracion}}</h3>
+        <h3 class="card-text">Ganó Oscar?: {% if peliculas.oscar == True %} Si {% else %} No {% endif %} </h3>
+        <p></p>
+        <a href="{{peliculas.linkTrailer}}" class="btn btn-dark" target="_blank">Ver trailer</a>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+        <a href="/AppNQV/peliculas-editar/{{peliculas.id}}/" class="btn btn-dark" type="button">Editar</a>
+        <a href="/AppNQV/peliculas-borrar/{{peliculas.id}}/" class="btn btn-danger">Eliminar</a>
     </div>
 </section>
 {% endblock %}
