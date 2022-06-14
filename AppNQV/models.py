@@ -23,6 +23,7 @@ class Peliculas(models.Model):
     oscar= models.BooleanField(default=False)
     ratingIMDB= models.FloatField(blank=True, null=True, verbose_name= 'Rating IMDB')
     linkTrailer= models.URLField(blank=True, null=True, verbose_name= 'Link Trailer')
+    #imagen= models.ImageField(blank=True, null=True, verbose_name= 'Imagen Pelicula')
     
 
     class Meta:

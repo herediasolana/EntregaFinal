@@ -231,7 +231,6 @@ class PlataformaEditar(UpdateView):
     template_name = 'PlataformaEditar.html'
     fields = '__all__'
 
-
     def get_success_url(self):
         return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
 
@@ -242,7 +241,6 @@ class ActoresEditar(UpdateView):
     template_name = 'actoresEditar.html'
     fields = '__all__'
 
-
     def get_success_url(self):
         return reverse ('actoresDetalle', kwargs = {'pk':self.object.pk})
 
@@ -252,7 +250,6 @@ class PeliculasEditar(UpdateView):
     model = Peliculas
     template_name = 'peliculasEditar.html'
     fields = '__all__'
-
 
     def get_success_url(self):
         return reverse ('peliculasDetalle', kwargs = {'pk':self.object.pk})
