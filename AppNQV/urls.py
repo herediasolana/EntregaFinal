@@ -4,6 +4,8 @@ from django.contrib import admin
 from AppNQV import views
 from AppNQV.views import BorrarPlataforma, BorrarActor, BorrarPelicula, PlataformaEditar, ActoresEditar, PeliculasEditar, Lista_plataformas, Crear_pelicula, Crear_actor, Crear_plataforma
 
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('home', views.home),
@@ -30,4 +32,4 @@ urlpatterns = [
     path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
     path('actores-editar/<int:pk>/', ActoresEditar.as_view(), name= 'ActoresEditar'),
     path('peliculas-editar/<int:pk>/', PeliculasEditar.as_view(), name= 'peliculasEditar'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
