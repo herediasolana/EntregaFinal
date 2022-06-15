@@ -32,4 +32,5 @@ urlpatterns = [
     path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
     path('actores-editar/<int:pk>/', ActoresEditar.as_view(), name= 'ActoresEditar'),
     path('peliculas-editar/<int:pk>/', PeliculasEditar.as_view(), name= 'peliculasEditar'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

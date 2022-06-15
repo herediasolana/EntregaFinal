@@ -23,7 +23,7 @@ class Peliculas(models.Model):
     oscar= models.BooleanField(default=False)
     ratingIMDB= models.FloatField(blank=True, null=True, verbose_name= 'Rating IMDB')
     linkTrailer= models.URLField(blank=True, null=True, verbose_name= 'Link Trailer')
-    #imagen= models.ImageField(blank=True, null=True, verbose_name= 'Imagen Pelicula')
+    imagen_peliculas= models.ImageField(upload_to= 'peliculas', blank=True, null=True, verbose_name= 'Imagen Pelicula')
     
 
     class Meta:
@@ -37,6 +37,7 @@ class Actores(models.Model):
     edad= models.IntegerField(blank=True, null=True)
     origen= models.CharField(max_length=40, blank=True, null=True)
     fechaDeNacimiento= models.DateField(blank=True, null=True, verbose_name= 'Fecha de Nacimiento')
+    imagen_actores= models.ImageField(upload_to= 'actores', blank=True, null=True, verbose_name= 'Imagen Actores')
 
     class Meta:
         verbose_name= 'actor'
@@ -48,6 +49,7 @@ class Plataformas(models.Model):
     cantidadUsuarios=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de Usuarios')
     cantidadPeliculasDisponibles=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de peliculas disponibles')
     precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name= 'Precio de suscripcion')
+    imagen_plataformas= models.ImageField(upload_to= 'plataformas', blank=True, null=True, verbose_name= 'Imagen Plataformas')
 
     class Meta:
         verbose_name= 'plataforma'
