@@ -9,12 +9,13 @@
         Agregar Plataformas
         </a>
                 {{message1}}
-                <h4></h4>
-                <p></p>
+                
             {% for plataforma in object_list %}
+            
+            
             <ul class="list-group">
-                <img src="{{plataformas.imagen_plataformas.url}}" class="list-group-item list-group-item-dark"/></h2></li>
-                <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2></li>
+                <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2>
+                <img src="{{plataforma.imagen_plataformas.url}}" class="img" alt="" width="400" height="350">
                 <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidadUsuarios}}</li>
                 <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataforma.cantidadPeliculasDisponibles}} </li>
                 <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataforma.precioSuscripcion}} /mes</li>

@@ -15,6 +15,7 @@
             {% for pelicula in peliculas %}
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{pelicula.nombre}}</h2> </li>
+                <img src="{{pelicula.imagen_peliculas.url}}" class="img" alt="" width="280" height="350">
                 <li class="list-group-item list-group-item-secondary">Duración: {{pelicula.duracion}} minutos</li>
                 <li class="list-group-item list-group-item-secondary">Clasificación: {{pelicula.clasificacion}}</li>
                 <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{pelicula.fecha_De_Estreno}}</li>
