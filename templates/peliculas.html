@@ -13,17 +13,16 @@
                 <h4></h4>
                 <p></p>
             {% for pelicula in peliculas %}
+            <div class="text-center">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{pelicula.nombre}}</h2> </li>
+            </div>
+                <div class="text-center">
                 <img src="{{pelicula.imagen_peliculas.url}}" class="img" alt="" width="280" height="350">
-                <li class="list-group-item list-group-item-secondary">Duración: {{pelicula.duracion}} minutos</li>
-                <li class="list-group-item list-group-item-secondary">Clasificación: {{pelicula.clasificacion}}</li>
-                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{pelicula.fecha_De_Estreno}}</li>
-                <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
-                    {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
-                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{pelicula.ratingIMDB}} </li>
-                <li class="list-group-item list-group-item-secondary">Link Trailer: {{pelicula.linkTrailer}} </li>
+                </div>
+                <div class="text-center">
                 <a href="/AppNQV/peliculas-detalle/{{pelicula.id}}/" class="btn btn-outline-light">Ver detalle</a>
+                </div>
                 <p></p>
             </ul>
         {% endfor %}

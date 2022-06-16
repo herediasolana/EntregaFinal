@@ -48,7 +48,9 @@ class Plataformas(models.Model):
     nombre= models.CharField(max_length=40,blank=True, null=True)
     cantidadUsuarios=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de Usuarios')
     cantidadPeliculasDisponibles=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de peliculas disponibles')
+    cantidadSeriesDisponibles=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de series disponibles')
     precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name= 'Precio de suscripcion')
+    linkPlataforma= models.URLField(blank=True, null=True, verbose_name= 'Link Plataforma')
     imagen_plataformas= models.ImageField(upload_to= 'plataformas', blank=True, null=True, verbose_name= 'Imagen Plataformas')
 
     class Meta:

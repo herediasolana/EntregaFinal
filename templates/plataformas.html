@@ -9,17 +9,19 @@
         Agregar Plataformas
         </a>
                 {{message1}}
-                
+            
             {% for plataforma in object_list %}
+            <div class="text-center">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2>
-                <img src="{{plataforma.imagen_plataformas.url}}" class="img" alt="" width="400" height="350">
-                <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataforma.cantidadUsuarios}}</li>
-                <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataforma.cantidadPeliculasDisponibles}} </li>
-                <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataforma.precioSuscripcion}} /mes</li>
-                <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/" class="btn btn-outline-light">Ver detalle</a>
-                <p></p>
+                <img src="{{plataforma.imagen_plataformas.url}}" class="img" alt="" width="500" height="350">
+            </div>
+                <div class="text-center">
+                    <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/" class="btn btn-outline-light">Ver detalle</a>
+                </div> 
             </ul>
+   <p></p>
+            
             {% endfor %}
         </div>
         

@@ -10,16 +10,17 @@
                 {{massage1}}
             </div>
 
-<div class="card text-center">
+
     <div class="card-header">
         <h2>{{plataformas.nombre}}</h2>
     </div>
     <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{plataformas.nombre}}</h2></li>
                 <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataformas.cantidadUsuarios}}</li>
                 <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataformas.cantidadPeliculasDisponibles}} </li>
+                <li class="list-group-item list-group-item-secondary">Series Disponibles: {{plataformas.cantidadSeriesDisponibles}}</li>
                 <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataformas.precioSuscripcion}} /mes</li>
+                <li class="list-group-item list-group-item-secondary">Link Plataforma: {{plataformas.linkPlataforma}}</li>
                 <a href="/AppNQV/plataformas-editar/{{plataformas.id}}/" class="btn btn-primary">Editar</a>
                 <a href="/AppNQV/plataformas-borrar/{{plataformas.id}}/" class="btn btn-danger">Eliminar</a>
                
@@ -28,7 +29,7 @@
             
         </div>
        
-    </div>
+
     
 </section>
 
