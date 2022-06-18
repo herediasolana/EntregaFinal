@@ -1,27 +1,30 @@
 {% extends "padre.html" %}
 {% load static %}
 {% block contenidoQueCambia %}
-<section class="bg-dark text-light p-5 ">
+<section class="bg-dark text-light p-5">
     <div class="container">
-        <h1>Perfil de Usuario</h1>
+        <div>
+                <h1>Perfil de Usuario</h1>
+                
                 <h4></h4>
-            
-    </div>
 </section>
-<div class="text-center">
-    <div class="card-header">
-        <h2>{{username.nombre}} {{username.apellido}}</h2>
+<div class="card text-center">
+            <h2>Usuario: {{object.usuario | capfirst}}</h2>
+</div>
+    <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-secondary">Nombre: {{object.nombre}}</li>
+                <li class="list-group-item list-group-item-secondary">Apellido: {{object.apellido}}</li>
+                <li class="list-group-item list-group-item-secondary">Telefono: {{object.telefono}}</li>
+                <li class="list-group-item list-group-item-secondary">Pais: {{object.pais}} </li>
+                <li class="list-group-item list-group-item-secondary">Email: {{object.email}} </li>
+                <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-primary">Editar</a>
+                <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+                <p></p>
+            </ul>
     </div>
-</div>
 
-<div class="card-body">
-    <ul class="list-group">
 
-    <li class="list-group-item list-group-item-secondary">Email: {{username.email}}</li>
-    <a href="/edit-user/{{username.id}}/" class="btn btn-primary">Editar</a>
-    <a href="/logout" class="btn btn-danger">Logout</a>
-
-    </ul>
-</div>
+    </div>
 </section>
 {% endblock %}

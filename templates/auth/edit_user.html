@@ -1,27 +1,20 @@
-{% extends "padre.html" %}
-{% load static %}
+{% extends 'padre.html' %}
+
+{% block titulo %}
+Actualizar Peliculas
+{% endblock %}
+
 {% block contenidoQueCambia %}
-<section class="bg-dark text-light p-5 ">
-    <div class="container">
-        <h1>Perfil de Usuario</h1>
-                <h4></h4>
-            
-    </div>
-</section>
-<div class="text-center">
-    <div class="card-header">
-        <h2>{{username.nombre}} {{username.apellido}}</h2>
-    </div>
-</div>
 
-<div class="card-body">
-    <ul class="list-group">
+    {% if form %}
+        <h2 style="margin-left:30rem">COMPLETE LOS CAMPOS A ACTUALIZAR</h2>
+        <form action="" method="POST" style="margin-left:30rem;margin-top:7rem">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" , value="Enviar">
+        </form>
+    {%endif%}
 
-    <li class="list-group-item list-group-item-secondary">Email: {{username.email}}</li>
-    <a href="/AppNQV/actores-editar/{{actores.id}}/" class="btn btn-primary">Editar</a>
-    <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger">Logout</a>
-
-    </ul>
-</div>
-</section>
 {% endblock %}

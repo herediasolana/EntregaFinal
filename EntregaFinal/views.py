@@ -8,6 +8,7 @@ from EntregaFinal.forms import User_registration_form, User_edit_form
 ########################## HOME #################################
 def index(request):
     print(request.user)
+    #print(request.user.perfil_usuario) # no me permite
     print(request.user.is_authenticated)
     return render (request, 'home.html')
 

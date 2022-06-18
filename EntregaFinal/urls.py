@@ -26,10 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index ),
     path('AppNQV/', include('AppNQV.urls')),
+    path('usuarios/', include('usuarios.urls')),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
-    #path('user/', user_view, name='user'),
-    path('edit-user/', edit_user, name='edit_user'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#en la carpeta base va la config de url para imagenes

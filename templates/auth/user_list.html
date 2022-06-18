@@ -1,0 +1,31 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <h1>Usuarios</h1>
+        <a href="/register" button type="button" class="btn btn-outline-danger"
+        style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
+        Agregar usuarios
+        </a>
+                <h4></h4>
+                <p></p>
+            {% for user in object_list %}
+            <div class="text-center">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-dark"><h2>{{user.nombre}}</h2> </li>
+            </div>
+                <div class="text-center">
+                {% if user.imagen_perfil %}
+                    <img src="{{user.imagen_perfil.url}}" class="img" alt="" width="280" height="350">
+                {% endif %}
+                </div>
+                <div class="text-center">
+                <a href="/usuarios/edit-user/{{user.id}}/" class="btn btn-outline-light">Ver detalle</a>
+                </div>
+                <p></p>
+            </ul>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
