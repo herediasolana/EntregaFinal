@@ -97,6 +97,7 @@ class Delete_peliculas(DeleteView):
         return reverse('peliculas')
 
 ############################ DETALLES DE FORMULARIOS ############################
+
 class Detalle_plataformas(DetailView):
     model = Plataformas
     template_name = 'plataformas/plataformaDetalle.html'
@@ -120,8 +121,6 @@ class PlataformaEditar(UpdateView):
     def get_success_url(self):
         return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
 
-
-
 class ActoresEditar(UpdateView):
     model = Actores
     template_name = 'actores/actoresEditar.html'
@@ -130,8 +129,6 @@ class ActoresEditar(UpdateView):
     def get_success_url(self):
         return reverse ('actoresDetalle', kwargs = {'pk':self.object.pk})
 
-
-
 class PeliculasEditar(UpdateView):
     model = Peliculas
     template_name = 'peliculas/peliculasEditar.html'
@@ -139,7 +136,6 @@ class PeliculasEditar(UpdateView):
 
     def get_success_url(self):
         return reverse ('peliculasDetalle', kwargs = {'pk':self.object.pk})
-
 
 #------------------------------------Crear 
 
