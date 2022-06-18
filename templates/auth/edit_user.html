@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5 ">
+    <div class="container">
+        <h1>Perfil de Usuario</h1>
+                <h4></h4>
+            
+    </div>
+</section>
+<div class="text-center">
+    <div class="card-header">
+        <h2>{{username.nombre}} {{username.apellido}}</h2>
+    </div>
+</div>
+
+<div class="card-body">
+    <ul class="list-group">
+
+    <li class="list-group-item list-group-item-secondary">Email: {{username.email}}</li>
+    <a href="/AppNQV/actores-editar/{{actores.id}}/" class="btn btn-primary">Editar</a>
+    <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger">Logout</a>
+
+    </ul>
+</div>
+</section>
+{% endblock %}
