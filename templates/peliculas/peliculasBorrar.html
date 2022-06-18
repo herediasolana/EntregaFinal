@@ -7,25 +7,25 @@
         <p></p>
     </div>
 </section>
-{% if pelicula %}
+{% if peliculas %}
 <div class="card text-center">
     <div class="card-header">
         <div class="alert alert-danger" role="alert">
-            <h2>Estas por borrar {{pelicula.nombre}}, estas seguro?</h2>
+            <h2>Estas por borrar {{peliculas.nombre}}, estas seguro?</h2>
             <a href="/AppNQV/peliculas" class="alert-link">No, Volver</a>.
         </div>
         
     </div>
     <div class="card-body">
-        <h3 class="card-title">Categoría: {{pelicula.clasificacion}}</h3>
-        <h3 class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</h3>
-        <h3 class="card-text">Puntuación: {{pelicula.ratingIMDB}}</h3>
-        <h3 class="card-text">Duración: {{pelicula.duracion}}</h3>
-        <h3 class="card-text">Ganó Oscar?: {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </h3>
+        <h3 class="card-title">Categoría: {{peliculas.clasificacion}}</h3>
+        <h3 class="card-text">Estreno: {{peliculas.fechaDeEstreno}}</h3>
+        <h3 class="card-text">Puntuación: {{peliculas.ratingIMDB}}</h3>
+        <h3 class="card-text">Duración: {{peliculas.duracion}}</h3>
+        <h3 class="card-text">Ganó Oscar?: {% if peliculas.oscar == True %} Si {% else %} No {% endif %} </h3>
         <p></p>        
     </div>
     <div class="card-footer text-muted">
-        <form action = '/AppNQV/peliculas-borrar/{{pelicula.id}}/' method = "POST">
+        <form method = "POST">
             {% csrf_token %}
             <button class="btn btn-danger" type="submit">Eliminar</button>
         </form>

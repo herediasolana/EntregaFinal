@@ -2,7 +2,7 @@ from django.urls import include, path
 from django.contrib import admin
 
 from AppNQV import views
-from AppNQV.views import BorrarPlataforma, BorrarActor, BorrarPelicula, PlataformaEditar, ActoresEditar, PeliculasEditar, Lista_plataformas, Crear_pelicula, Crear_actor, Crear_plataforma
+from AppNQV.views import Delete_actores, Delete_peliculas, Delete_plataforma, Lista_actores, Lista_peliculas, PlataformaEditar, ActoresEditar, PeliculasEditar, Lista_plataformas, Crear_pelicula, Crear_actor, Crear_plataforma, success
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -10,8 +10,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('home', views.home),
     #listados
-    path('peliculas', views.peliculas),#listado peliculas
-    path('actores', views.actores),#listado actores
+    path('peliculas', Lista_peliculas.as_view(), name ='peliculas'),#listado peliculas
+    path('actores', Lista_actores.as_view(), name ='actores'),#listado actores
     path('plataformas', Lista_plataformas.as_view(), name ='plataformas'),#listado plataformas
     path('datosCuriosos', views.datosCuriosos),#datos curiosos
     #crear formularios
@@ -21,13 +21,13 @@ urlpatterns = [
     #busquedas
     path('busqueda',views.buscar_view),#pagina de busqueda
     #detalles
-    path('peliculas-detalle/<int:pk>/', views.detalle_peliculas, name='peliculasDetalle'),
-    path('actores-detalle/<int:pk>/', views.detalle_actores, name='actoresDetalle'),
+    path('peliculas-detalle/<int:pk>/', views.Detalle_peliculas.as_view(), name='peliculasDetalle'),
+    path('actores-detalle/<int:pk>/', views.Detalle_actores.as_view(), name='actoresDetalle'),
     path('plataformas-detalle/<int:pk>/', views.Detalle_plataformas.as_view(), name='plataformaDetalle'),
     #eliminar
-    path('plataformas-borrar/<int:pk>/', BorrarPlataforma, name= 'plataformasBorrar'),
-    path('actores-borrar/<int:pk>/', BorrarActor, name= 'BorrarActor'),
-    path('peliculas-borrar/<int:pk>/', BorrarPelicula, name= 'BorrarPelicula'),
+    path('plataformas-borrar/<int:pk>/', Delete_plataforma.as_view(), name= 'plataformasBorrar'),
+    path('actores-borrar/<int:pk>/', Delete_actores.as_view(), name= 'BorrarActor'),
+    path('peliculas-borrar/<int:pk>/', Delete_peliculas.as_view(), name= 'BorrarPelicula'),
     #editar
     path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
     path('actores-editar/<int:pk>/', ActoresEditar.as_view(), name= 'ActoresEditar'),

@@ -8,19 +8,19 @@
         style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
         Agregar Plataformas
         </a>
-                {{message1}}
-            
             {% for plataforma in object_list %}
             <div class="text-center">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2>
+                {% if plataforma.imagen_plataformas %}
                 <img src="{{plataforma.imagen_plataformas.url}}" class="img" alt="" width="500" height="350">
+                {% endif %}
             </div>
                 <div class="text-center">
                     <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/" class="btn btn-outline-light">Ver detalle</a>
                 </div> 
             </ul>
-   <p></p>
+        <p></p>
             
             {% endfor %}
         </div>

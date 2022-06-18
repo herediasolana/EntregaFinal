@@ -7,23 +7,23 @@
         <p></p>
     </div>
 </section>
-{% if plataforma %}
+{% if plataformas %}
 <div class="card text-center">
     <div class="card-header">
         <div class="alert alert-danger" role="alert">
-            <h2>Estas por borrar {{plataforma.nombre}}, estas seguro?</h2>
+            <h2>Estas por borrar {{plataformas.nombre}}, estas seguro?</h2>
             <a href="/AppNQV/plataformas" class="alert-link">No, Volver</a>.
         </div>
         
     </div>
     <div class="card-body">
-        <h3 class="card-text">Cantidad de Usuarios: {{plataforma.cantidadUsuarios}}</h3>
-        <h3 class="card-text">Cantidad de peliculas disponibles: {{plataforma.cantidadPeliculasDisponibles}}</h3>
-        <h3 class="card-text">Precio de suscripcion: ${{plataforma.precioSuscripcion}}</h3>
+        <h3 class="card-text">Cantidad de Usuarios: {{plataformas.cantidadUsuarios}}</h3>
+        <h3 class="card-text">Cantidad de peliculas disponibles: {{plataformas.cantidadPeliculasDisponibles}}</h3>
+        <h3 class="card-text">Precio de suscripcion: ${{plataformas.precioSuscripcion}}</h3>
         <p></p>        
     </div>
     <div class="card-footer text-muted">
-        <form action = '/AppNQV/plataformas-borrar/{{plataforma.id}}/' method = "POST">
+        <form method = "POST">
             {% csrf_token %}
             <button class="btn btn-danger" type="submit">Eliminar</button>
         </form>
@@ -37,4 +37,6 @@
         </div>
     
 {%endif%}
+
+
 {% endblock %}

@@ -25,7 +25,7 @@
     </div>
 
     <div class="card-footer text-muted">
-        <form action = '/AppNQV/actores-borrar/{{actores.id}}/' method = "POST">
+        <form method = "POST">
             {% csrf_token %}
             <button class="btn btn-danger" type="submit">Eliminar</button>
         </form>
