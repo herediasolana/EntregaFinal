@@ -1,14 +1,11 @@
 from audioop import reverse
-from pyexpat.errors import messages
-from unicodedata import name
 from django.shortcuts import render
 from django.urls import reverse
 
-from AppNQV.forms import ActoresFormulario, PeliculasFormulario, PlataformasFormulario
 from AppNQV.models import Actores, Peliculas, Plataformas
 
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-
+from django.contrib.auth.mixins import LoginRequiredMixin #requiere que el usuario este logueado
 
 
 # Create your views here.
@@ -54,21 +51,21 @@ class Lista_plataformas(ListView):
 
 #######################-CREAR #####################################
 
-class Crear_plataforma(CreateView):
+class Crear_plataforma(LoginRequiredMixin, CreateView):
     model = Plataformas
     template_name = 'plataformas/plataformasFormulario.html'
     fields = '__all__'
     def get_success_url(self):
         return reverse('plataformaDetalle', kwargs={'pk':self.object.pk} )
 
-class Crear_pelicula(CreateView):
+class Crear_pelicula(LoginRequiredMixin, CreateView):
     model = Peliculas
     template_name = 'peliculas/peliculasFormulario.html'
     fields = '__all__'
     def get_success_url(self):
         return reverse('peliculasDetalle', kwargs={'pk':self.object.pk} )
 
-class Crear_actor(CreateView):
+class Crear_actor(LoginRequiredMixin, CreateView):
     model = Actores
     template_name = 'actores/actoresFormulario.html'
     fields = '__all__'
@@ -78,19 +75,19 @@ class Crear_actor(CreateView):
 
 ########################## ELIMINAR FORMULARIOS ###################################
 
-class Delete_plataforma(DeleteView):
+class Delete_plataforma(LoginRequiredMixin, DeleteView):
     model= Plataformas
     template_name= 'plataformas/plataformasBorrar.html'
     def get_success_url(self):
         return reverse('plataformas')
 
-class Delete_actores(DeleteView):
+class Delete_actores(LoginRequiredMixin, DeleteView):
     model= Actores
     template_name= 'actores/actoresBorrar.html'
     def get_success_url(self):
         return reverse('actores')
 
-class Delete_peliculas(DeleteView):
+class Delete_peliculas(LoginRequiredMixin, DeleteView):
     model= Peliculas
     template_name= 'peliculas/peliculasBorrar.html'
     def get_success_url(self):
@@ -113,7 +110,7 @@ class Detalle_peliculas(DetailView):
 
 ############################ MODIFICAR FORMULARIOS  ####################################
 
-class PlataformaEditar(UpdateView):
+class PlataformaEditar(LoginRequiredMixin, UpdateView):
     model = Plataformas
     template_name = 'plataformas/PlataformaEditar.html'
     fields = '__all__'
@@ -121,7 +118,7 @@ class PlataformaEditar(UpdateView):
     def get_success_url(self):
         return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
 
-class ActoresEditar(UpdateView):
+class ActoresEditar(LoginRequiredMixin, UpdateView):
     model = Actores
     template_name = 'actores/actoresEditar.html'
     fields = '__all__'
@@ -129,7 +126,7 @@ class ActoresEditar(UpdateView):
     def get_success_url(self):
         return reverse ('actoresDetalle', kwargs = {'pk':self.object.pk})
 
-class PeliculasEditar(UpdateView):
+class PeliculasEditar(LoginRequiredMixin, UpdateView):
     model = Peliculas
     template_name = 'peliculas/peliculasEditar.html'
     fields = '__all__'
