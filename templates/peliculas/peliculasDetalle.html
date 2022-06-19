@@ -7,27 +7,33 @@
                 <h1>Peliculas</h1>
                 
                 <h4></h4>
-</section>
-<div class="card text-center">
-    
-            <h2>{{peliculas.nombre}}</h2>
+
+<div class="card mb-3 container bg-secondary text-light" style="max-width: 700px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if peliculas.imagen_peliculas %}
+            <img src="{{peliculas.imagen_peliculas.url}}" class="img-fluid rounded-start" width="200px" height="200px">
+            {%else%}
+            <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{peliculas.nombre}}</h5>
+                    <li class="list-group-item list-group-item">Duración: {{peliculas.duracion}} minutos</li>
+                    <li class="list-group-item list-group-item">Clasificación: {{peliculas.clasificacion}}</li>
+                    <li class="list-group-item list-group-item">Fecha de Estreno: {{peliculas.fecha_De_Estreno}}</li>
+                    <li class="list-group-item list-group-item">Ganó Oscar?: 
+                        {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
+                    <li class="list-group-item list-group-item">Rating IMdB: {{peliculas.ratingIMDB}} </li>
+                    <li class="mb-2"><a class= 'link-light'  href="{{peliculas.linkTrailer}}" target="_blank"
+                        rel="noopener">Ver Trailer</a></li>
+                    <a href="/AppNQV/peliculas-editar/{{peliculas.id}}/" class="btn btn-outline-light btn-sm">Editar</a>
+                    <a href="/AppNQV/peliculas-borrar/{{peliculas.id}}/" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
-    <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-secondary">Duración: {{peliculas.duracion}} minutos</li>
-                <li class="list-group-item list-group-item-secondary">Clasificación: {{peliculas.clasificacion}}</li>
-                <li class="list-group-item list-group-item-secondary">Fecha de Estreno: {{peliculas.fecha_De_Estreno}}</li>
-                <li class="list-group-item list-group-item-secondary">Ganó Oscar?: 
-                    {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
-                <li class="list-group-item list-group-item-secondary">Rating IMdB: {{peliculas.ratingIMDB}} </li>
-                <a class="list-group-item list-group-item-secondary">Link Trailer: {{peliculas.linkTrailer}} </a>
-                <a href="/AppNQV/peliculas-editar/{{peliculas.id}}/" class="btn btn-primary">Editar</a>
-                <a href="/AppNQV/peliculas-borrar/{{peliculas.id}}/" class="btn btn-danger">Eliminar</a>
-                <p></p>
-            </ul>
-    </div>
-
-
-    </div>
 </section>
 {% endblock %}
