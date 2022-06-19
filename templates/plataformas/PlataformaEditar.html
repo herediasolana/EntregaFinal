@@ -8,7 +8,7 @@ Actualizar Plataforma
 
     {% if form %}
         <h2 style="margin-left:30rem">COMPLETE LOS CAMPOS A ACTUALIZAR</h2>
-        <form action="" method="POST" style="margin-left:30rem;margin-top:7rem">
+        <form action="" method="POST" style="margin-left:30rem;margin-top:7rem"enctype="'multipart/form-data">
             {% csrf_token %}
             <table>
                 {{form.as_table}}

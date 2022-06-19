@@ -25,8 +25,8 @@ from EntregaFinal.views import edit_user, index, login_view, logout_view,registe
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index ),
-    path('AppNQV/', include('AppNQV.urls')),
-    path('usuarios/', include('usuarios.urls')),
+    path('AppNQV/', include('AppNQV.urls')),#app NQV
+    path('usuarios/', include('usuarios.urls')),#app usuarios
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),

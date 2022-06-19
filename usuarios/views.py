@@ -16,7 +16,7 @@ class Editar_usuario(LoginRequiredMixin, UpdateView):
 
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
-    template_name = 'auth/user.html'
+    template_name = 'auth/detil_user.html'
 
 class Crear_usuario(CreateView):
     model = Perfil_usuario
@@ -27,4 +27,4 @@ class Crear_usuario(CreateView):
 
 class Lista_usuarios(ListView):
     model = Perfil_usuario
-    template_name = 'auth/user_list.html'
+    template_name = 'auth/users.html'
