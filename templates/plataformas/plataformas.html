@@ -8,20 +8,30 @@
         style="--bs-btn-padding-y: .35rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85em;">
         Agregar Plataformas
         </a>
-            {% for plataforma in object_list %}
-            <div class="text-center">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{plataforma.nombre}}</h2>
-                {% if plataforma.imagen_plataformas %}
-                <img src="{{plataforma.imagen_plataformas.url}}" class="img" alt="" width="500" height="350">
-                {% endif %}
-            </div>
-                <div class="text-center">
-                    <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/" class="btn btn-outline-light">Ver detalle</a>
-                </div> 
-            </ul>
         <p></p>
-            
+            {% for plataforma in object_list %}
+        <div class="card bg-secondary mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {% if plataforma.imagen_plataformas %}
+                    <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/">
+                    <img src="{{plataforma.imagen_plataformas.url}}" class="img-fluid rounded-start" alt="...">
+                    </a>
+                    {%else%}
+                    <a href="/AppNQV/plataformas-detalle/{{plataforma.id}}/">
+                    <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{plataforma.nombre}}</h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
             {% endfor %}
         </div>
         

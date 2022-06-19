@@ -9,24 +9,30 @@
             Agregar Actores
         </a>
                 <h4></h4>
-            {{message2}}
-            {{message3}}
             <p></p>
             {% for actor in object_list %}
-            <div class="text-center">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{actor.nombre}} {{actor.apellido}}</h2></li>
+            <div class="card bg-secondary mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if actor.imagen_actores %}
+                        <a href="/AppNQV/actores-detalle/{{actor.id}}/">
+                        <img src="{{actor.imagen_actores.url}}" class="img-fluid rounded-start" width= '150px' height="150px">
+                        </a>
+                        {%else%}
+                        <a href="/AppNQV/actores-detalle/{{actor.id}}/">
+                        <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{actor.nombre}} {{actor.apellido}}</h5>
+                            <p class="card-text"></p>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-                <div class="text-center">
-                {% if actor.imagen_actores %}
-                <img src="{{actor.imagen_actores.url}}" class="img" alt="" width="430" height="350">
-                {% endif %}
-            </div>
-            <div class="text-center">
-                <a href="/AppNQV/actores-detalle/{{actor.id}}/" class="btn btn-outline-light">Ver detalle</a>
-            </div>
-                <p></p>
-            </ul>
             {% endfor %}
         </div>
         

@@ -13,20 +13,28 @@
                 <h4></h4>
                 <p></p>
             {% for pelicula in object_list %}
-            <div class="text-center">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-dark"><h2>{{pelicula.nombre}}</h2> </li>
+            <div class="card bg-secondary mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        {% if pelicula.imagen_peliculas %}
+                        <a href="/AppNQV/peliculas-detalle/{{pelicula.id}}/">
+                        <img src="{{pelicula.imagen_peliculas.url}}" class="img-fluid rounded-start" alt="...">
+                        </a>
+                        {%else%}
+                        <a href="/AppNQV/peliculas-detalle/{{pelicula.id}}/">
+                        <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">-{{pelicula.nombre}}</h5>
+                            <p class="card-text"></p>
+                            <p class="card-text"><small class="text-muted"></small></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-                <div class="text-center">
-                {% if pelicula.imagen_peliculas %}
-                    <img src="{{pelicula.imagen_peliculas.url}}" class="img" alt="" width="280" height="350">
-                {% endif %}
-                </div>
-                <div class="text-center">
-                <a href="/AppNQV/peliculas-detalle/{{pelicula.id}}/" class="btn btn-outline-light">Ver detalle</a>
-                </div>
-                <p></p>
-            </ul>
         {% endfor %}
     </div>
 </section>
