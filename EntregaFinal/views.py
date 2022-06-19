@@ -12,6 +12,12 @@ def index(request):
     print(request.user.is_authenticated)
     return render (request, 'home.html')
 
+def acerca_de(request):
+    return render (request, 'extra/acercade.html')
+
+def contacto(request):
+    return render (request, 'extra/contacto.html')
+
 ########################## LOGIN #################################
 def login_view(request):
     if request.method =="POST":
