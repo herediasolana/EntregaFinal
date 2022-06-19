@@ -5,6 +5,9 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from EntregaFinal.forms import User_registration_form, User_edit_form
 
+from django.conf import settings
+from django.core.mail import send_mail
+
 ########################## HOME #################################
 def index(request):
     print(request.user)
@@ -14,9 +17,6 @@ def index(request):
 
 def acerca_de(request):
     return render (request, 'extra/acercade.html')
-
-def contacto(request):
-    return render (request, 'extra/contacto.html')
 
 ########################## LOGIN #################################
 def login_view(request):
@@ -108,3 +108,14 @@ def edit_user(request):
         context = {'form':form}
         return render (request, 'auth/edit_user.html', context=context)
 
+########################## ENVIAR EMAIL #################################
+def contacto(request):
+    if request.method == 'POST':
+        subject=request.POST['asunto']
+        message=request.POST['mensaje'] + " " + request.POST['email']
+        email_from= settings.EMAIL_HOST_USER
+        recipient_list=['herediasolana@gmail.com']
+        send_mail(subject, message, email_from, recipient_list)
+        return render (request, "extra/gracias.html")
+
+    return render(request, 'extra/contacto.html')
