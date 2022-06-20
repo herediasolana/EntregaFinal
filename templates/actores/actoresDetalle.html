@@ -1,35 +1,39 @@
 {% extends "padre.html" %}
 {% load static %}
 {% block contenidoQueCambia %}
-<section class="bg-dark text-light p-5 ">
+<section class="bg-dark text-light p-5">
     <div class="container">
-        <h1>Actores</h1>
+        <div>
+                <h1>Actores</h1>
                 <h4></h4>
+                {% if messages %}
+                <div class="alert alert-success" role="alert"><h5>
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </h5></ul></div>
+                {% endif %}
+<div class="card mb-3 container bg-secondary text-light" style="max-width: 700px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if actores.imagen_actores %}
+            <img src="{{actores.imagen_actores.url}}" class="img-fluid rounded-start" width="200px" height="200px">
+            {%else%}
+            <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{actores.nombre}} {{actores.apellido}}</h5>
+                    <li class="list-group-item list-group-item">Edad: {{actores.edad}}</li>
+                    <li class="list-group-item list-group-item">Origen: {{actores.origen}} </li>
+                    <li class="list-group-item list-group-item">Fecha de Nacimiento: {{actores.fechaDeNacimiento}}</li>
+                    <a href="/AppNQV/actores-editar/{{actores.id}}/" class="btn btn-outline-light btn-sm">Editar</a>
+                    <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+            </div>
+        </div>
     </div>
-</section>
-{% if messages %}
-<div class="alert alert-success" role="alert"><h5>
-    {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-    </h5></ul></div>
-{% endif %}
-<div class="text-center">
-    <div class="card-header">
-        <h2>{{actores.nombre}} {{actores.apellido}}</h2>
-    </div>
-</div>
-
-<div class="card-body">
-    <ul class="list-group">
-
-    <li class="list-group-item list-group-item-secondary">Edad: {{actores.edad}}</li>
-    <li class="list-group-item list-group-item-secondary">Origen: {{actores.origen}} </li>
-    <li class="list-group-item list-group-item-secondary">Fecha de Nacimiento: {{actores.fechaDeNacimiento}} </li>
-    <a href="/AppNQV/actores-editar/{{actores.id}}/" class="btn btn-primary">Editar</a>
-    <a href="/AppNQV/actores-borrar/{{actores.id}}/" class="btn btn-danger">Eliminar</a>
-
-    </ul>
 </div>
 </section>
 {% endblock %}
