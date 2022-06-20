@@ -5,9 +5,15 @@
     <div class="container">
         <h1>Actores</h1>
                 <h4></h4>
-            {{message2}}
     </div>
 </section>
+{% if messages %}
+<div class="alert alert-success" role="alert"><h5>
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </h5></ul></div>
+{% endif %}
 <div class="text-center">
     <div class="card-header">
         <h2>{{actores.nombre}} {{actores.apellido}}</h2>

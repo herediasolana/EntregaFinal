@@ -122,6 +122,7 @@ class PlataformaEditar(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
         return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
 
 class ActoresEditar(LoginRequiredMixin, UpdateView):
@@ -130,6 +131,7 @@ class ActoresEditar(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
         return reverse ('actoresDetalle', kwargs = {'pk':self.object.pk})
 
 class PeliculasEditar(LoginRequiredMixin, UpdateView):
@@ -138,6 +140,7 @@ class PeliculasEditar(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
         return reverse ('peliculasDetalle', kwargs = {'pk':self.object.pk})
 
 ############################ BOTON PRINCIPAL  ####################################

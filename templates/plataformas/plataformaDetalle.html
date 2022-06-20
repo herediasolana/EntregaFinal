@@ -7,9 +7,14 @@
             <div>
                 <h1>Detalle de Plataformas</h1>
                 <h4></h4>
-                {{massage1}}
             </div>
-
+            {% if messages %}
+            <div class="alert alert-success" role="alert"><h5>
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </h5></ul></div>
+            {% endif %}
 
     <div class="card-header">
         <h2>{{plataformas.nombre}}</h2>
