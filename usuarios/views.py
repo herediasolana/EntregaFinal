@@ -12,11 +12,11 @@ class Editar_usuario(LoginRequiredMixin, UpdateView):
     template_name = 'auth/edit_user.html'
     fields = '__all__'
     def get_success_url(self):
-        return reverse ('user', kwargs = {'pk':self.object.pk})
+        return reverse ('users')
 
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
-    template_name = 'auth/detil_user.html'
+    template_name = 'auth/detail_user.html'
 
 class Crear_usuario(CreateView):
     model = Perfil_usuario

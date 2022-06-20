@@ -18,10 +18,12 @@
                 <div class="text-center">
                 {% if user.imagen_perfil %}
                     <img src="{{user.imagen_perfil.url}}" class="img" alt="" width="280" height="350">
+                {% else %}
+                    <i class="bi bi-card-image"></i>
                 {% endif %}
                 </div>
                 <div class="text-center">
-                <a href="/usuarios/edit-user/{{user.id}}/" class="btn btn-outline-light">Ver detalle</a>
+                <a href="/usuarios/detail-user/{{user.id}}/" class="btn btn-outline-light">Ver detalle</a>
                 </div>
                 <p></p>
             </ul>
