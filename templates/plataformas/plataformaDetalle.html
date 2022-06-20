@@ -15,25 +15,31 @@
                 {% endfor %}
                 </h5></ul></div>
             {% endif %}
-
-    <div class="card-header">
-        <h2>{{plataformas.nombre}}</h2>
-    </div>
+<div class="card mb-3 container bg-secondary text-light" style="max-width: 700px;">
+<div class="row g-0">
+<div class="col-md-4">
+    {% if plataformas.imagen_plataformas %}
+    <img src="{{plataformas.imagen_plataformas.url}}" class="img-fluid rounded-start" width="200px" height="200px">
+    {%else%}
+    <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+    {% endif %}
+</div>
+<div class="col-md-8">
     <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-secondary">Cantidad de Usuarios Activos: {{plataformas.cantidadUsuarios}}</li>
-                <li class="list-group-item list-group-item-secondary">Peliculas Disponibles: {{plataformas.cantidadPeliculasDisponibles}} </li>
-                <li class="list-group-item list-group-item-secondary">Series Disponibles: {{plataformas.cantidadSeriesDisponibles}}</li>
-                <li class="list-group-item list-group-item-secondary">Precio Suscripción: $ {{plataformas.precioSuscripcion}} /mes</li>
-                <li class="list-group-item list-group-item-secondary">Link Plataforma: {{plataformas.linkPlataforma}}</li>
-                <a href="/AppNQV/plataformas-editar/{{plataformas.id}}/" class="btn btn-primary">Editar</a>
-                <a href="/AppNQV/plataformas-borrar/{{plataformas.id}}/" class="btn btn-danger">Eliminar</a>
-            </ul>
-            
+        <h5 class="card-title">{{plataformas.nombre}}</h5>
+        <li class="list-group-item list-group-item">Cantidad de Usuarios Activos: {{plataformas.cantidadUsuarios}}</li>
+                    <li class="list-group-item list-group-item">Peliculas Disponibles: {{plataformas.cantidadPeliculasDisponibles}} </li>
+                    <li class="list-group-item list-group-item">Series Disponibles: {{plataformas.cantidadSeriesDisponibles}}</li>
+                    <li class="list-group-item list-group-item">Precio Suscripción: $ {{plataformas.precioSuscripcion}} /mes</li>
+                    <li class="mb-2"><a class= 'link-light'  href="{{plataformas.linkPlataforma}}" target="_blank"
+                        rel="noopener">Link Plataforma</a></li>
+                    <a href="/AppNQV/plataformas-editar/{{plataformas.id}}/" class="btn btn-outline-light btn-sm">Editar</a>
+                    <a href="/AppNQV/plataformas-borrar/{{plataformas.id}}/" class="btn btn-danger btn-sm">Eliminar</a>
+            </div>
+            </div>
         </div>
-       
-
-    
+    </div>
+</div>
 </section>
 
 {% endblock %}
