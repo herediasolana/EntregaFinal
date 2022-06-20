@@ -20,6 +20,7 @@ urlpatterns = [
     path('plataformas-formulario', Crear_plataforma.as_view(), name= 'plataformasFormulario'),#crear plataformas
     #busquedas
     path('busqueda',views.buscar_view),#pagina de busqueda
+    path('resultado',views.random_peli, name='resultado'),
     #detalles
     path('peliculas-detalle/<int:pk>/', views.Detalle_peliculas.as_view(), name='peliculasDetalle'),
     path('actores-detalle/<int:pk>/', views.Detalle_actores.as_view(), name='actoresDetalle'),

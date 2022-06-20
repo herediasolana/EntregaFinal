@@ -1,8 +1,4 @@
-from random import choices
-from secrets import choice
-from tabnanny import verbose
 from django.db import models
-from django.forms import CharField
 
 # Create your models here.
 
@@ -29,6 +25,8 @@ class Peliculas(models.Model):
     class Meta:
         verbose_name= 'pelicula'
         verbose_name_plural= 'peliculas'
+    def __str__(self):
+        return self.nombre
 
 #---------------CLASE-ACTORES-------------------#
 class Actores(models.Model):
@@ -42,7 +40,8 @@ class Actores(models.Model):
     class Meta:
         verbose_name= 'actor'
         verbose_name_plural= 'actores'
-
+    def __str__(self):
+        return self.nombre + " " + self.apellido
 #---------------CLASE-PLATAFORMAS-------------------#
 class Plataformas(models.Model):
     nombre= models.CharField(max_length=40,blank=True, null=True)
@@ -56,3 +55,5 @@ class Plataformas(models.Model):
     class Meta:
         verbose_name= 'plataforma'
         verbose_name_plural= 'plataformas'
+    def __str__(self):
+        return self.nombre

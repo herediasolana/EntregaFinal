@@ -20,11 +20,28 @@
                         <h1></h1>
                         <h1 class="display-6">Recomendaciones de Streaming</h1>
                             <div class="h4 pb-2 mb-4 text-danger">
-                                {{message}}
-                            </div>
-                    <div class="container">
+                                
+                                {{pelicula}}
+                                {% for resultado_pelicula in resultado_pelicula %}
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                        <h2>{{resultado_pelicula.nombre}}</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="{{pelicula.imagen}}" class="card-img-top" alt="...">
+                                        <h3 class="card-title">Categoría: {{resultado_pelicula.clasificacion}}</h3>
+                                        <h3 class="card-text">Estreno: {{resultado_pelicula.fechaDeEstreno}}</h3>
+                                        <h3 class="card-text">Puntuación: {{resultado_pelicula.ratingIMDB}}</h3>
+                                        <h3 class="card-text">Duración: {{resultado_pelicula.duracion}}</h3>
+                                        <p></p>
+                                        <a href="{{resultado_pelicula.linkTrailer}}" class="btn btn-dark" target="_blank">Ver trailer</a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                
+                                
+                                {% endfor %}
                                 <a href="/AppNQV/resultado">
-                                <button type="button" class="btn btn-outline-danger">Quiero mi recomendacion!</button>
+                                    <button type="button" class="btn btn-outline-danger">Dame otra!</button>
                                 </a>
                             </div>
                 </section>

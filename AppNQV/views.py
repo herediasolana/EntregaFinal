@@ -5,7 +5,10 @@ from AppNQV.models import Actores, Peliculas, Plataformas
 
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin #requiere que el usuario este logueado
+from django.db.models import Max
 
+import random
+from random import Random, choice, random
 
 # Create your views here.
 
@@ -132,6 +135,22 @@ class PeliculasEditar(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse ('peliculasDetalle', kwargs = {'pk':self.object.pk})
+
+############################ BOTON PRINCIPAL  ####################################
+def random_peli(request):
+    peliculas = Peliculas.objects.all()
+    pelicula = choice(peliculas)
+    print(pelicula)
+    resultado_pelicula = Peliculas.objects.filter(nombre=pelicula) #--->filtra, trae lo que cumple on la condicion
+    context = {'resultado_pelicula':resultado_pelicula}
+    return render(request, 'resultado.html', context = context)
+
+def buscar_view(request):
+    print(request.GET)
+    #peliculas = Peliculas.objects.get() #------>lo usamos cuando queremos traer un objeto en particular
+    peliculas = Peliculas.objects.filter(nombre__icontains = request.GET['search']) #--->filtra, trae lo que cumple on la condicion
+    context = {'peliculas':peliculas}
+    return render(request, 'busqueda.html', context = context)
 
 #------------------------------------Crear 
 
