@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -81,18 +82,21 @@ class Delete_plataforma(LoginRequiredMixin, DeleteView):
     model= Plataformas
     template_name= 'plataformas/plataformasBorrar.html'
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Plataforma eliminada correctamente')
         return reverse('plataformas')
 
 class Delete_actores(LoginRequiredMixin, DeleteView):
     model= Actores
     template_name= 'actores/actoresBorrar.html'
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Actor eliminado correctamente')
         return reverse('actores')
 
 class Delete_peliculas(LoginRequiredMixin, DeleteView):
     model= Peliculas
     template_name= 'peliculas/peliculasBorrar.html'
     def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Pelicula eliminada correctamente')
         return reverse('peliculas')
 
 ############################ DETALLES DE FORMULARIOS ############################
