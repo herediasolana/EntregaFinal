@@ -44,8 +44,15 @@ MY_APPS=[
     'AppNQV',
     'usuarios',
 ]
+THIRD_APPS=[
+    'crispy_bootstrap5',
+    'crispy_forms'
+]
 
-INSTALLED_APPS = BASE_APPS + MY_APPS
+INSTALLED_APPS = BASE_APPS + MY_APPS + THIRD_APPS
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,6 +144,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #configuracion para visualizar imag
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL= '/login/'
+LOGIN_REDIRECT_URL= '/home'
+LOGOUT_REDIRECT_URL= '/home'
+
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'

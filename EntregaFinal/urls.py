@@ -19,7 +19,7 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from EntregaFinal.views import edit_user, index, login_view, logout_view,register_view, contacto, acerca_de
+from .views import edit_user, index, login_view, logout_view,register_view, contacto, acerca_de, userPage
 #from EntregaFinal.views import saludo, index #ya no seria necesario
 
 urlpatterns = [
@@ -30,7 +30,9 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
+    path('edit-user/', edit_user, name='edit_user'),
     path('contacto/', contacto, name='contacto'),
     path('acerca-de/', acerca_de, name='acercade'),
+    path('userPage/', userPage, name='userPage'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#en la carpeta base va la config de url para imagenes

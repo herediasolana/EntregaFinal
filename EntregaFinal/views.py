@@ -7,6 +7,8 @@ from EntregaFinal.forms import User_registration_form, User_edit_form
 
 from django.conf import settings
 from django.core.mail import send_mail
+from usuarios.models import Perfil_usuario
+
 
 ########################## HOME #################################
 def index(request):
@@ -17,6 +19,11 @@ def index(request):
 
 def acerca_de(request):
     return render (request, 'extra/acercade.html')
+
+def userPage(request):
+    nombre = request.user.username
+    context={'nombre':nombre}
+    return render(request, 'auth/userPage.html', context=context)
 
 ########################## LOGIN #################################
 def login_view(request):
@@ -92,9 +99,6 @@ def edit_user(request):
         
         if form.is_valid():
             form.save()
-            username.email = form.cleaned_data['email']
-            username.password1 = form.cleaned_data['password1']
-            username.password2 = form.cleaned_data['password2']
             context= {'message': f'Usuario actualizado correctamente - {username}'}
             return render(request, 'home.html',context=context)
         else:

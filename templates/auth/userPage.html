@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+                        <h1>Perfil de Usuario</h1>
+                
+                <h4></h4>
+</section>
+        <div class="card text-center">
+            <h2>Usuario: {{user.username | capfirst}}</h2>
+        </div>
+        <div class="card-body text-center">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-secondary">Nombre: {{user.first_name}}</li>
+                <li class="list-group-item list-group-item-secondary">Apellido: {{user.last_name}}</li>
+                <li class="list-group-item list-group-item-secondary">Email: {{user.email}}</li>
+                <li class="list-group-item list-group-item-secondary">Es Staff: {% if user.is_staff == True %} Si {% else %} No {% endif %} </li>
+                <a href="/edit-user" class="btn btn-dark">Editar</a>
+                <p></p>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

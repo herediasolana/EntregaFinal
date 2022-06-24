@@ -16,11 +16,12 @@
         {% if errors %}
         <div class="container"><div class="alert alert-danger" role="alert">{{errors}}</div></div>
         {% endif %}
+        {% load crispy_forms_tags %}
         <div class="card-body">
-            <form action ='' method = 'POST'>{% csrf_token%}
-                <table class="table table-sm">
-                {{form.as_table}}                    
-                </table>
+            <form action ='' method = 'POST'>{% csrf_token %}
+                
+                {{form|crispy}}                    
+                
                 <input type="submit",value='Ingresar'>
             </form>
         </div>
