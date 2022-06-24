@@ -17,7 +17,7 @@
         <div class="container"><div class="alert alert-danger" role="alert">{{errors}}</div></div>
         {% endif %}
         {% load crispy_forms_tags %}
-        <div class="card-body">
+        <div class="card-body text-center">
             <form action ='' method = 'POST'>{% csrf_token %}
                 
                 {{form|crispy}}                    

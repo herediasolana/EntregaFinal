@@ -22,7 +22,11 @@
                         <h2>{{pelicula.nombre}}</h2>
                     </div>
                     <div class="card-body">
-                        <img src="{{pelicula.imagen}}" class="card-img-top" alt="...">
+                        {% if pelicula.imagen_peliculas %}
+                        <img src="{{pelicula.imagen_peliculas.url}}" class="img-fluid rounded-start" width="200px" height="200px">
+                        {%else%}
+                        <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+                        {% endif %}
                         <h3 class="card-title">Categoría: {{pelicula.clasificacion}}</h3>
                         <h3 class="card-text">Estreno: {{pelicula.fechaDeEstreno}}</h3>
                         <h3 class="card-text">Puntuación: {{pelicula.ratingIMDB}}</h3>
