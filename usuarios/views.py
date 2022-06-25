@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin #requiere que el usuario este logueado
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
 
 from django.views import generic
@@ -124,6 +125,18 @@ class PasswordsChangeView(PasswordChangeView):
         messages.add_message(self.request, messages.INFO, 'Contraseña actualizada correctamente')
         return reverse ('userPage')
 
+def delete_user(request, username):
+    try:
+        u=User.objects.get(username=username)
+        u.delete()
+        context= {'message': f'Usuario eliminado correctamente - {username}'}
+    except User.DoesNotExist:
+        messages.error(request, 'El usuario no existe')
+        return render (request, 'home.html')
+    except Exception as e: 
+        return render(request, 'home.html',{'err':e.message})
+
+    return render(request, 'home.html', context=context) 
 
 #def edit_user(request):
 #    #instancia del login

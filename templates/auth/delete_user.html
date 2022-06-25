@@ -1,0 +1,44 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<section class="bg-dark text-light p-5">
+    <div class="container">
+        <h1>Eliminar Plataforma</h1>
+        <p></p>
+    </div>
+</section>
+{% if plataformas %}
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-danger" role="alert">
+            <h2>Estas por borrar {{user.username}}, estas seguro?</h2>
+            <a href="/userPage" class="alert-link">No, Volver</a>.
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <h3 class="card-text">Nombre: {{user.first_name}}</h3>
+        <h3 class="card-text">Apellido: {{user.last_name}}</h3>
+        <h3 class="card-text">Email: {{user.email}}</h3>
+        <h3 class="card-text">Telefono: {{user.profile.telefono}}</h3>
+        <h3 class="card-text">Link perfil: {{user.profile.link}}</h3>
+        <h3 class="card-text">Bio: {{user.profile.bio | capfirst}}</h3>
+        <p></p>        
+    </div>
+    <div class="card-footer text-muted">
+        <form method = "POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Eliminar</button>
+        </form>
+</section>
+{% else %}
+<div class="card text-center">
+    <div class="card-header">
+        <div class="alert alert-success" role="alert">
+            <h2>Usuario eliminado con exito</h2>
+        </div>
+    
+{%endif%}
+
+
+{% endblock %}
