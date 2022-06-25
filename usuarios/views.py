@@ -20,7 +20,7 @@ class Editar_usuario(LoginRequiredMixin, UpdateView):
     template_name = 'auth/edit_profile.html'
     fields = '__all__'
     def get_success_url(self):
-        return reverse ('users')
+        return reverse ('userPage')
 
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
