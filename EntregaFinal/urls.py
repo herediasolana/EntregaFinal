@@ -27,6 +27,7 @@ urlpatterns = [
     path('', index ),
     path('AppNQV/', include('AppNQV.urls')),#app NQV
     path('usuarios/', include('usuarios.urls')),#app usuarios
+    path('usuarios/', include('django.contrib.auth.urls')),
     path('contacto/', contacto, name='contacto'),
     path('acerca-de/', acerca_de, name='acercade'),
     path('userPage/', userPage, name='userPage'),

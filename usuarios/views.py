@@ -1,13 +1,17 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse
+
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin #requiere que el usuario este logueado
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import PasswordChangeView
+
+from django.views import generic
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+
 from usuarios.forms import User_registration_form, User_edit_form
 from usuarios.models import Perfil_usuario
-
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import authenticate, login, logout
-
 # Create your views here.
 
 class Editar_usuario(LoginRequiredMixin, UpdateView):
@@ -96,26 +100,41 @@ def register_view(request):
         return render (request, 'auth/register.html', context=context)
 
 ########################## EDIT USER #################################
+class EditUser(generic.UpdateView):
+    form_class = User_edit_form
+    template_name = 'auth/edit_user.html'
+    def get_object(self):
+        return self.request.user
+    def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Usuario actualizado correctamente')
+        return reverse ('userPage')
 
-def edit_user(request):
-    #instancia del login
-    username = request.user
+class PasswordsChangeView(PasswordChangeView):
+    form_class: PasswordChangeForm
+    def get_success_url(self):
+        messages.add_message(self.request, messages.INFO, 'Contraseña actualizada correctamente')
+        return reverse ('userPage')
 
-    if request.method =="POST":
-        #form = UserCreationForm(request.POST) -->reemplazo el de django por mi formulario creado
-        form = User_edit_form(request.POST)
-        
-        if form.is_valid():
-            form.save()
-            context= {'message': f'Usuario actualizado correctamente - {username}'}
-            return render(request, 'home.html',context=context)
-        else:
-            errors=form.errors
-            form=User_edit_form()
-            context = {'errors':errors, 'form':form}
-            return render(request, 'auth/edit_user.html', context=context)
 
-    else:
-        form = User_edit_form()
-        context = {'form':form}
-        return render (request, 'auth/edit_user.html', context=context)
+#def edit_user(request):
+#    #instancia del login
+#    username = request.user
+#
+#    if request.method =="POST":
+#        #form = UserCreationForm(request.POST) -->reemplazo el de django por mi formulario creado
+#        form = User_edit_form(request.POST)
+#        
+#        if form.is_valid():
+ #           form.save()
+#            context= {'message': f'Usuario actualizado correctamente - {username}'}
+#            return render(request, 'home.html',context=context)
+#        else:
+#            errors=form.errors
+#            form=User_edit_form()
+#            context = {'errors':errors, 'form':form}
+#            return render(request, 'auth/edit_user.html', context=context)
+
+#    else:
+#        form = User_edit_form()
+#        context = {'form':form}
+ #       return render (request, 'auth/edit_user.html', context=context)

@@ -9,6 +9,13 @@
 </section>
         <div class="card text-center">
             <h2>Usuario: {{user.username | capfirst}}</h2>
+            {% if messages %}
+            <div class="alert alert-success" role="alert"><h5>
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </h5></ul></div>
+            {% endif %}
         </div>
         <div class="card-body text-center">
             <ul class="list-group">
@@ -16,8 +23,10 @@
                 <li class="list-group-item list-group-item-secondary">Apellido: {{user.last_name}}</li>
                 <li class="list-group-item list-group-item-secondary">Email: {{user.email}}</li>
                 <li class="list-group-item list-group-item-secondary">Es Staff: {% if user.is_staff == True %} Si {% else %} No {% endif %} </li>
-                <a href="/edit-user" class="btn btn-dark">Editar</a>
-                <p></p>
+                <div class="container">
+                    <a href="/usuarios/edit-user" class="btn btn-dark">Editar usuario</a>
+                    <a href="/usuarios/password" class="btn btn-dark">Cambiar contraseña</a>
+                </div><p></p>
             </ul>
         </div>
     </div>
