@@ -39,9 +39,10 @@
                     <li class="list-group-item list-group-item-secondary">Bio: {{user.profile.bio | capfirst}}</li>
                     <li class="list-group-item list-group-item-secondary">Telefono: {{user.profile.telefono}}</li>
                     <li class="list-group-item list-group-item-secondary">Link perfil: {{user.profile.link}}</li>
+                    <li class="list-group-item list-group-item-secondary">User id: {{user.profile.id}}</li>
                 <p class="card-text"><small class="text-muted">
-                    <a href="/usuarios/edit-user" class="btn btn-dark">Editar usuario</a>
-                    <a href="/usuarios/password" class="btn btn-dark">Cambiar contraseña</a>
+                    <a href="/usuarios/edit-profile/{{user.profile.id}}/" class="btn btn-dark text-center">Editar perfil</a>
+                    
                 </small></p>
             </div>
         </div>

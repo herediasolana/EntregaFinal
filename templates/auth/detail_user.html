@@ -3,28 +3,48 @@
 {% block contenidoQueCambia %}
 <section class="bg-dark text-light p-5">
     <div class="container">
-        <div>
-                <h1>Perfil de Usuario</h1>
+                        <h1>Perfil de Usuario</h1>
                 
                 <h4></h4>
 </section>
-<div class="card text-center">
-            <h2>Usuario: {{object.usuario | capfirst}}</h2>
+        <div class="card text-center">
+            <h2>Usuario: {{page_user.usuario | capfirst}}</h2>
+
+            {% if messages %}
+            <div class="alert alert-success" role="alert"><h5>
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </h5></ul></div>
+            {% endif %}
+        </div>
+
+<div class="card mb-3" style="max-width: 540px; ">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if user.profile.imagen_perfil %}
+            <img src="{{user.profile.imagen_perfil.url}}" class="img-fluid rounded-start" alt="...">
+            {%else%}
+            <img src="media/cinema-vector.jpg" class="img-fluid rounded-start" alt="...">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{user.username | capfirst}}</h5>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-secondary">Nombre: {{user.first_name}}</li>
+                    <li class="list-group-item list-group-item-secondary">Apellido: {{user.last_name}}</li>
+                    <li class="list-group-item list-group-item-secondary">Email: {{user.email}}</li>
+                    <li class="list-group-item list-group-item-secondary">Es Staff: {% if user.is_staff == True %} Si {% else %} No {% endif %} </li>
+                    <li class="list-group-item list-group-item-secondary">Bio: {{object.bio | capfirst}}</li>
+                    <li class="list-group-item list-group-item-secondary">Telefono: {{object.telefono}}</li>
+                    <li class="list-group-item list-group-item-secondary">Link perfil: {{object.link}}</li>
+                <p class="card-text"><small class="text-muted">
+                    <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-dark">Editar usuario</a>
+                    <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+                </small></p>
+            </div>
+        </div>
+    </div>
 </div>
-    <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-secondary">Nombre: {{object.nombre}}</li>
-                <li class="list-group-item list-group-item-secondary">Apellido: {{object.apellido}}</li>
-                <li class="list-group-item list-group-item-secondary">Telefono: {{object.telefono}}</li>
-                <li class="list-group-item list-group-item-secondary">Pais: {{object.pais}} </li>
-                <li class="list-group-item list-group-item-secondary">Email: {{object.email}} </li>
-                <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-primary">Editar</a>
-                <a href="/usuarios/edit-user/{{object.id}}/" class="btn btn-danger">Eliminar</a>
-                <p></p>
-            </ul>
-    </div>
-
-
-    </div>
-</section>
 {% endblock %}

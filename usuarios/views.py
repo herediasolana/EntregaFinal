@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
 from django.contrib import messages
@@ -16,7 +16,7 @@ from usuarios.models import Perfil_usuario
 
 class Editar_usuario(LoginRequiredMixin, UpdateView):
     model = Perfil_usuario
-    template_name = 'auth/edit_user.html'
+    template_name = 'auth/edit_profile.html'
     fields = '__all__'
     def get_success_url(self):
         return reverse ('users')
@@ -24,6 +24,15 @@ class Editar_usuario(LoginRequiredMixin, UpdateView):
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
     template_name = 'auth/detail_user.html'
+
+    def get_context_data(self, *args, **kwargs):
+        profiles= Perfil_usuario.objects.all()
+        context= super(Detalle_usuario, self).get_context_data(*args, **kwargs)
+        
+        page_user=get_object_or_404(Perfil_usuario, id=self.kwargs['pk'])
+
+        context['page_user']=page_user
+        return context
 
 class Crear_usuario(CreateView):
     model = Perfil_usuario
