@@ -13,50 +13,40 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid">
-
-            <!--LOGO-->
-        <a class="navbar-brand" href="/AppNQV/home">NQV</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-<!--PAGINAS-->
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item">
-                    <a class="nav-link" href="/AppNQV/peliculas">Peliculas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/AppNQV/plataformas">Plataformas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/AppNQV/actores">Actores</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/AppNQV/datosCuriosos">Datos Curiosos</a>
-                </li>
-            <!--FINPAGINAS-->
-            <!--DIRECTORIOS-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Directorios
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="/AppNQV/peliculas">Peliculas</a></li>
-                        <li><a class="dropdown-item" href="/AppNQV/actores">Actores</a></li>
-                        <li><a class="dropdown-item" href="/AppNQV/plataformas">Plataformas</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!--FINDIRECTORIO-->
-            <!--BUSQUEDA-->
-                <form class="d-flex" role="search" action="/AppNQV/busqueda" method="GET">
-                    <input class="form-control me-2" type="text" placeholder="Buscar Peliculas" name='search' aria-label="search">
-                    <button class="btn btn-outline-danger" type="submit">Buscar</button>
-                </form>
-                <li class="nav-item" style="margin-right: 10pxnone">
-                    <a class="nav-link" href='#'>|</a>
-                </li>
+                    <!--LOGO-->
+            <a class="navbar-brand" href="/AppNQV/home">NQV</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <!--PAGINAS-->
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item"><a class="nav-link" href="/AppNQV/peliculas">Peliculas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/AppNQV/plataformas">Plataformas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/AppNQV/actores">Actores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/AppNQV/datosCuriosos">Datos Curiosos</a></li>
+                    <!--FINPAGINAS-->
+                    <!--DIRECTORIOS-->
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Directorios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="/AppNQV/peliculas">Peliculas</a></li>
+                            <li><a class="dropdown-item" href="/AppNQV/actores">Actores</a></li>
+                            <li><a class="dropdown-item" href="/AppNQV/plataformas">Plataformas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+                <!--FINDIRECTORIO-->
+                <!--BUSQUEDA-->
+            <form class="d-flex" role="search" action="/AppNQV/busqueda" method="GET">
+                <input class="form-control me-2" type="text" placeholder="Buscar Peliculas" name='search' aria-label="search">
+                <button class="btn btn-outline-danger" type="submit">Buscar</button>
+            </form>
+            <li class="nav-item" style="margin-right: 10pxnone">
+                <a class="nav-link" href='#'>|</a>
+            </li>
             <!--DROPDOWN USUARIO-->
             {% if request.user.is_authenticated %}
                 <div class="dropdown">
@@ -77,24 +67,19 @@
                 </button>
                 {% endif %}
                 <!--FINUSUARIO-->
-            </div>
         </div>
     </nav>
 
-    <!--SHOWCASE-->
-    {% block contenidoQueCambia %}
+{% block contenidoQueCambia %}
     <section class="bg-dark text-light p-5 text-center">
         <div class="container">
             <div>
-                <div>
                     <h1>NADA QUE VER</h1>
                     <h4>Recomendaciones de Streaming</h4>
-                </div>
-                
             </div>
         </div>
     </section>
-    {% endblock %}
+{% endblock %}
 </body>
 <!--zocalo-->
 <div class="bg-secondary">
@@ -113,5 +98,8 @@
                 <li class="mb-2"><a class= 'link-light'  href="/contacto" target="_blank"
                         rel="noopener">Contacto</a></li>
             </ul>
+            </div>
         </div>
+    </div>
+</div>
 </html>

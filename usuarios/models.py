@@ -8,18 +8,17 @@ def user_directory_path(instance, filename):
 
 
 class Perfil_usuario(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name= 'perfil_usuarios')
-    nombre =models.CharField(max_length=20)
-    apellido =models.CharField(max_length=20)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name= 'profile')
+    link =models.URLField(blank=True, null=True)
     bio =models.CharField(max_length=200, blank=True, null=True)
     telefono= models.CharField(max_length=20, blank=True, null=True)
-    email= models.EmailField(blank=True, null=True)
     pais= models.CharField(max_length=30, blank=True, null=True)
     imagen_perfil= models.ImageField(upload_to=user_directory_path, default='imagen_perfil/perfil_sin_foto.png')
-
     class Meta:
         verbose_name= 'usuario'
         verbose_name_plural= 'usuarios'
+    def __str__(self):
+        return str(self.usuario)
 
 @ receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs): #sender es el usuario, instance
