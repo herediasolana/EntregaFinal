@@ -17,6 +17,6 @@ urlpatterns = [
     path('register/', register_view, name='register'),
     path('edit-user/', EditUser.as_view(), name='edit_user'),
     path('delete-user/<slug:username>', delete_user, name='delete_user'),
-    path('edit-profile/', EditUser.as_view(), name='edit_profile'),
+    path('edit-profile/', editProfile, name='edit_profile'),
     path('password/', PasswordsChangeView.as_view(template_name = 'auth/password.html'), name='password'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

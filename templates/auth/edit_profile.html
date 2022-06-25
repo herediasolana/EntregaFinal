@@ -19,7 +19,7 @@ Actualizar Peliculas
                 <ul class="list-group">
                     {% if form %}
                     {% load crispy_forms_tags %}
-                    <form action="" method="POST">
+                    <form action="" method="POST" action="" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form|crispy}}
                     <input type="submit" , value="Enviar">

@@ -11,7 +11,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from usuarios.forms import User_registration_form, User_edit_form, Password_change_form
+from usuarios.forms import User_registration_form, User_edit_form, Password_change_form, Profile_edit_form
 from usuarios.models import Perfil_usuario
 # Create your views here.
 
@@ -24,6 +24,16 @@ class Editar_usuario(LoginRequiredMixin, UpdateView):
     fields = ('link','bio','telefono','pais','imagen_perfil')
     def get_success_url(self):
         return reverse ('userPage')
+
+def editProfile(request):
+    user= request.user
+    form = Profile_edit_form(instance=user)
+    
+    if request.method == 'POST':
+        form = Profile_edit_form(request.POST, request.FILES, instance=user)
+    context = {'form':form}
+    return render(request,'/userPage.html', context )
+
 
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
