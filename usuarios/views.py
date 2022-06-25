@@ -15,10 +15,13 @@ from usuarios.forms import User_registration_form, User_edit_form, Password_chan
 from usuarios.models import Perfil_usuario
 # Create your views here.
 
+
+
+#--------------------------------PERFILES--------------------------------------#
 class Editar_usuario(LoginRequiredMixin, UpdateView):
     model = Perfil_usuario
     template_name = 'auth/edit_profile.html'
-    fields = '__all__'
+    fields = ('link','bio','telefono','pais','imagen_perfil')
     def get_success_url(self):
         return reverse ('userPage')
 
@@ -35,17 +38,7 @@ class Detalle_usuario(DetailView):
         context['page_user']=page_user
         return context
 
-class Crear_usuario(CreateView):
-    model = Perfil_usuario
-    template_name = 'auth/register.html'
-    fields = '__all__'
-    def get_success_url(self):
-        return reverse ('user', kwargs = {'pk':self.object.pk})
-
-class Lista_usuarios(ListView):
-    model = Perfil_usuario
-    template_name = 'auth/users.html'
-
+#--------------------------------USER--------------------------------------#
 
 ########################## LOGIN #################################
 def login_view(request):

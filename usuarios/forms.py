@@ -11,6 +11,22 @@ class user_profile_form(forms.ModelForm):
         model = Perfil_usuario
         fields="__all__"
 
+class Profile_edit_form(forms.ModelForm):
+    class Meta:
+        model= Perfil_usuario
+        fields = ('link','bio','telefono','pais','imagen_perfil')
+
+        widgets = {
+            'bio': forms.Textarea,
+            'link':forms.TextInput,
+            'telefono':forms.TextInput,
+            'pais':forms.TextInput}
+            #'imagen_perfil':forms.TextInput, 
+
+
+
+
+
 class User_registration_form(UserCreationForm):
     email=forms.EmailField(widget=forms.EmailInput)
     first_name= forms.CharField(label='Nombre', max_length=100, widget=forms.TextInput)

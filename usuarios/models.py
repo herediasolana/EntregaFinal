@@ -12,8 +12,8 @@ class Perfil_usuario(models.Model):
     pais= models.CharField(max_length=30, blank=True, null=True)
     imagen_perfil= models.ImageField(upload_to='imagen_perfil', default='imagen_perfil/perfil_sin_foto.png')
     class Meta:
-        verbose_name= 'usuario'
-        verbose_name_plural= 'usuarios'
+        verbose_name= 'perfil'
+        verbose_name_plural= 'perfiles'
     def __str__(self):
         return str(self.usuario)
 

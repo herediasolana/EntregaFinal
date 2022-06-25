@@ -7,14 +7,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from usuarios import views
-from usuarios.views import Detalle_usuario,delete_user, Editar_usuario, Crear_usuario, login_view, logout_view, register_view, EditUser, PasswordsChangeView
-
+from usuarios.views import *
 
 urlpatterns = [
     path('detail-user/<int:pk>/', Detalle_usuario.as_view(), name='detail_user'),
     path('edit-profile/<int:pk>/', Editar_usuario.as_view(), name='edit_profile'),
-    path('create-user/', Crear_usuario.as_view(), name='create_user'),
-    path('users/', views.Lista_usuarios.as_view(), name='users'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
