@@ -10,7 +10,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from usuarios.forms import User_registration_form, User_edit_form
+from usuarios.forms import User_registration_form, User_edit_form, Password_change_form
 from usuarios.models import Perfil_usuario
 # Create your views here.
 
@@ -110,7 +110,7 @@ class EditUser(generic.UpdateView):
         return reverse ('userPage')
 
 class PasswordsChangeView(PasswordChangeView):
-    form_class: PasswordChangeForm
+    form_class: Password_change_form
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO, 'Contraseña actualizada correctamente')
         return reverse ('userPage')
