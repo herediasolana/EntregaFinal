@@ -1,20 +1,44 @@
 {% extends 'padre.html' %}
 
 {% block titulo %}
-Actualizar Actores
+Actualizar Actor
 {% endblock %}
 
 {% block contenidoQueCambia %}
 
-    {% if form %}
-        <h2 style="margin-left:30rem">COMPLETE LOS CAMPOS A ACTUALIZAR</h2>
-        <form action="" method="POST" style="margin-left:30rem;margin-top:7rem" enctype="'multipart/form-data">
-            {% csrf_token %}
-            <table>
-                {{form.as_table}}
-            </table>
-            <input type="submit" , value="Enviar">
-        </form>
-    {%endif%}
+    <section class="bg-dark text-light p-5">
+        <div class="container">
+                            <h1>Editar</h1>
+                </div>
+    </section>
+    <div class="container">
+        <div class="card text-center">
+            <h2>Complete los campos a actualizar</h2>
+    
+    
+            <div class="input-group mb-3">
+                    <ul class="list-group">
+                        {% if form %}
+                        {% load crispy_forms_tags %}
+                        <form action="" method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" , value="Enviar">
+                        </form>
+                        {% endif %}
+                    </ul>
+            </div>
+                
+                
+        </div>
+    </div>
+    <p></p>
+    <div class="card text-center">
+        <p></p>
+        <p></p>
+    </div>
+    </div>
+    </section>
+    
 
 {% endblock %}

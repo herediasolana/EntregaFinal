@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -19,7 +20,7 @@ class Peliculas(models.Model):
     oscar= models.BooleanField(default=False)
     ratingIMDB= models.FloatField(blank=True, null=True, verbose_name= 'Rating IMDB')
     linkTrailer= models.URLField(blank=True, null=True, verbose_name= 'Link Trailer')
-    imagen_peliculas= models.ImageField(upload_to= 'peliculas', blank=True, null=True, verbose_name= 'Imagen Pelicula')
+    imagen_peliculas= models.ImageField(upload_to= 'peliculas',verbose_name= 'Imagen Pelicula', default='cinema-vector.jpg')
     
 
     class Meta:
@@ -35,7 +36,7 @@ class Actores(models.Model):
     edad= models.IntegerField(blank=True, null=True)
     origen= models.CharField(max_length=40, blank=True, null=True)
     fechaDeNacimiento= models.DateField(blank=True, null=True, verbose_name= 'Fecha de Nacimiento')
-    imagen_actores= models.ImageField(upload_to= 'actores', blank=True, null=True, verbose_name= 'Imagen Actores')
+    imagen_actores= models.ImageField(upload_to= 'actores',verbose_name= 'Imagen Actores', default='cinema-vector.jpg')
 
     class Meta:
         verbose_name= 'actor'
@@ -50,7 +51,7 @@ class Plataformas(models.Model):
     cantidadSeriesDisponibles=models.IntegerField(blank=True, null=True, verbose_name='Cantidad de series disponibles')
     precioSuscripcion=models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name= 'Precio de suscripcion')
     linkPlataforma= models.URLField(blank=True, null=True, verbose_name= 'Link Plataforma')
-    imagen_plataformas= models.ImageField(upload_to= 'plataformas', blank=True, null=True, verbose_name= 'Imagen Plataformas')
+    imagen_plataformas= models.ImageField(upload_to= 'plataformas', verbose_name= 'Imagen Plataformas', default='cinema-vector.jpg')
 
     class Meta:
         verbose_name= 'plataforma'

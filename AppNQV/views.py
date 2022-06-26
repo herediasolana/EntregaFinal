@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from AppNQV.models import Actores, Peliculas, Plataformas
-
+from AppNQV.forms import *
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin #requiere que el usuario este logueado
 from django.db.models import Max
@@ -119,11 +119,10 @@ class Detalle_peliculas(DetailView):
 class PlataformaEditar(LoginRequiredMixin, UpdateView):
     model = Plataformas
     template_name = 'plataformas/PlataformaEditar.html'
-    fields = '__all__'
-
+    fields = ('nombre','cantidadUsuarios','cantidadSeriesDisponibles','precioSuscripcion','linkPlataforma','imagen_plataformas')
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
-        return reverse ('plataformaDetalle', kwargs = {'pk':self.object.pk})
+        return reverse ('plataformas')
 
 class ActoresEditar(LoginRequiredMixin, UpdateView):
     model = Actores

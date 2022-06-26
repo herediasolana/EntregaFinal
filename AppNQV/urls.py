@@ -2,7 +2,7 @@ from django.urls import include, path
 from django.contrib import admin
 
 from AppNQV import views
-from AppNQV.views import Delete_actores, Delete_peliculas, Delete_plataforma, Lista_actores, Lista_peliculas, PlataformaEditar, ActoresEditar, PeliculasEditar, Lista_plataformas, Crear_pelicula, Crear_actor, Crear_plataforma, success
+from AppNQV.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -30,6 +30,7 @@ urlpatterns = [
     path('actores-borrar/<int:pk>/', Delete_actores.as_view(), name= 'BorrarActor'),
     path('peliculas-borrar/<int:pk>/', Delete_peliculas.as_view(), name= 'BorrarPelicula'),
     #editar
+    #path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
     path('plataformas-editar/<int:pk>/', PlataformaEditar.as_view(), name= 'PlataformaEditar'),
     path('actores-editar/<int:pk>/', ActoresEditar.as_view(), name= 'ActoresEditar'),
     path('peliculas-editar/<int:pk>/', PeliculasEditar.as_view(), name= 'peliculasEditar'),

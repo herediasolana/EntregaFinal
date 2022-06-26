@@ -34,7 +34,6 @@ def editProfile(request):
     context = {'form':form}
     return render(request,'/userPage.html', context )
 
-
 class Detalle_usuario(DetailView):
     model = Perfil_usuario
     template_name = 'auth/detail_user.html'
