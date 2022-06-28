@@ -38,9 +38,6 @@
                                 <li class="list-group-item list-group-item">Duración: {{pelicula.duracion}} minutos</li>
                                 <li class="list-group-item list-group-item">Clasificación: {{pelicula.clasificacion}}</li>
                                 <li class="list-group-item list-group-item">Fecha de Estreno: {{pelicula.fecha_De_Estreno}}</li>
-                                <li class="list-group-item list-group-item">Ganó Oscar?: 
-                                    {% if pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
-                                <li class="list-group-item list-group-item">Rating IMdB: {{pelicula.ratingIMDB}} </li>
                                 {% if pelicula.linkTrailer %}
                                 <li class="mb-2"><a class= 'link-light'  href="{{pelicula.linkTrailer}}" target="_blank"
                                     rel="noopener">Ver Trailer</a></li>

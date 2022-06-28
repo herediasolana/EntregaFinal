@@ -44,8 +44,6 @@
                     <li class="list-group-item list-group-item">Duración: {{resultado_pelicula.duracion}} minutos</li>
                     <li class="list-group-item list-group-item">Clasificación: {{resultado_pelicula.clasificacion}}</li>
                     <li class="list-group-item list-group-item">Fecha de Estreno: {{resultado_pelicula.fecha_De_Estreno}}</li>
-                    <li class="list-group-item list-group-item">Ganó Oscar?: 
-                        {% if resultado_pelicula.oscar == True %} Si {% else %} No {% endif %} </li>
                     <li class="list-group-item list-group-item">Rating IMdB: {{resultado_pelicula.ratingIMDB}} </li>
                     <li class="mb-2"><a class= 'link-light'  href="{{resultado_pelicula.linkTrailer}}" target="_blank"
                         rel="noopener">Ver Trailer</a></li>

@@ -57,21 +57,24 @@ class Lista_plataformas(ListView):
 class Crear_plataforma(LoginRequiredMixin, CreateView):
     model = Plataformas
     template_name = 'plataformas/plataformasFormulario.html'
-    fields = '__all__'
+    form_class = PlataformasFormulario
+
     def get_success_url(self):
         return reverse('plataformaDetalle', kwargs={'pk':self.object.pk} )
 
 class Crear_pelicula(LoginRequiredMixin, CreateView):
     model = Peliculas
+    form_class = PeliculasFormulario
     template_name = 'peliculas/peliculasFormulario.html'
-    fields = '__all__'
+    
     def get_success_url(self):
         return reverse('peliculasDetalle', kwargs={'pk':self.object.pk} )
 
 class Crear_actor(LoginRequiredMixin, CreateView):
     model = Actores
+    form_class = ActoresFormulario
     template_name = 'actores/actoresFormulario.html'
-    fields = '__all__'
+        
     def get_success_url(self):
         return reverse('actoresDetalle', kwargs={'pk':self.object.pk} )
 
@@ -118,16 +121,18 @@ class Detalle_peliculas(DetailView):
 
 class PlataformaEditar(LoginRequiredMixin, UpdateView):
     model = Plataformas
+    form_class = PlataformasFormulario
     template_name = 'plataformas/PlataformaEditar.html'
-    fields = ('nombre','cantidadUsuarios','cantidadSeriesDisponibles','precioSuscripcion','linkPlataforma','imagen_plataformas')
+    
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
         return reverse ('plataformas')
 
 class ActoresEditar(LoginRequiredMixin, UpdateView):
     model = Actores
+    form_class = ActoresFormulario
     template_name = 'actores/actoresEditar.html'
-    fields = '__all__'
+    
 
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
@@ -135,8 +140,9 @@ class ActoresEditar(LoginRequiredMixin, UpdateView):
 
 class PeliculasEditar(LoginRequiredMixin, UpdateView):
     model = Peliculas
+    form_class = PeliculasFormulario
     template_name = 'peliculas/peliculasEditar.html'
-    fields = '__all__'
+    
 
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO, 'Se han actualizado correctamente los datos')
